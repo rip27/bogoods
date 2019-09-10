@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "912276967847",
+    "firebase_url": "https://bogoods.firebaseio.com",
+    "project_id": "bogoods",
+    "storage_bucket": "bogoods.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912276967847:android:81e75bf95db56ad76c6682",
+        "android_client_info": {
+          "package_name": "com.example.bogoods"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912276967847-ig6cmfo6p7fqrbdobonncn3l3f8tivit.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bogoods",
+            "certificate_hash": "52019e0f8cec9db708895dc419e6213a819548d8"
+          }
+        },
+        {
+          "client_id": "912276967847-keomiikh49tquem57t7juhvq0609mf99.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDprList47Qc5BVIiuQMag0Z3PNDtBmJj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912276967847-keomiikh49tquem57t7juhvq0609mf99.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

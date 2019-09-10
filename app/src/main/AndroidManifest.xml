@@ -9,6 +9,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".page.seller.DashboardSeller"
+                android:label="@string/title_activity_dashboard_seller"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".page.reseller.DashReseller">
+        </activity>
+        <activity android:name=".page.seller.DashSeller">
+        </activity>
         <activity android:name=".page.Auth">
         </activity>
         <activity android:name=".page.ChooseAs">

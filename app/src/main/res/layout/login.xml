@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_centerInParent="true"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:layout_height="wrap_content">
+
+    <ImageView android:layout_width="150dp"
+               android:layout_gravity="center"
+               android:src="@drawable/bogoods_text"
+               android:layout_height="75dp"/>
+
+    <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/gradient_rounded"
+            android:layout_height="wrap_content">
+        <EditText
+                android:layout_margin="2dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/shape_et_auth"
+                android:id="@+id/et_email_login"
+                android:paddingHorizontal="10dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#666"
+                android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/gradient_rounded"
+            android:layout_height="wrap_content">
+        <EditText
+                android:layout_margin="2dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/shape_et_auth"
+                android:id="@+id/et_password_login"
+                android:paddingHorizontal="10dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColorHint="#666"
+                android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <ProgressBar
+            android:progressBackgroundTint="@android:color/black"
+            android:id="@+id/progressLogin"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <Button android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:id="@+id/bt_login"
+            android:layout_margin="10dp"
+            android:text="LOGIN"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="15dp"
+            android:textColor="#fff"
+            android:alpha="0.8"
+            android:textSize="22sp"
+            android:background="@drawable/button_blue_rounded"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>
