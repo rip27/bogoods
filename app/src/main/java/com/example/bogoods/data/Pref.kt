@@ -40,13 +40,22 @@ class Pref {
         return sharedSet.getInt(COUNTER_ID, 1)
     }
 
-    fun setStatus(status: Boolean) {
+    fun setStatusS(status: Boolean) {
         val edit = sharedSet.edit()
         edit.putBoolean(statusLogin, status)
         edit.apply()
     }
 
-    fun cekStatus(): Boolean? {
+    fun cekStatusS(): Boolean? {
+        return sharedSet.getBoolean(statusLogin, false)
+    }
+    fun setStatusR(status: Boolean) {
+        val edit = sharedSet.edit()
+        edit.putBoolean(statusLogin, status)
+        edit.apply()
+    }
+
+    fun cekStatusR(): Boolean? {
         return sharedSet.getBoolean(statusLogin, false)
     }
 }

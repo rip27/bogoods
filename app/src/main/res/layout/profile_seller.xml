@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:background="#eee"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/header_layout_profile"
+                    android:layout_height="150dp">
+        <ImageView
+                android:layout_centerInParent="true"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:src="@drawable/bogoods_text"/>
+    </RelativeLayout>
+    <androidx.appcompat.widget.Toolbar
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar_profile"
+            android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_below="@+id/header_layout_profile"
+            android:layout_width="100dp"
+            android:padding="5dp"
+            android:background="@drawable/background_back"
+            android:layout_margin="20dp"
+            android:id="@+id/foto_profile"
+            android:src="@drawable/ic_seller"
+            android:layout_height="100dp"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_marginTop="20dp"
+              android:id="@+id/name_on_profile"
+              android:textAppearance="@style/TextAppearance.AppCompat.Large"
+              android:layout_toEndOf="@+id/foto_profile"
+              android:layout_below="@+id/header_layout_profile"
+              android:layout_height="wrap_content"/>
+
+    <LinearLayout
+            android:layout_toEndOf="@+id/foto_profile"
+            android:layout_width="wrap_content"
+            android:id="@+id/content_email_on_profile"
+            android:layout_below="@+id/name_on_profile"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="75dp"
+                  android:text="Email"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:id="@+id/email_on_profile"
+                  android:textColor="#000"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_toEndOf="@+id/foto_profile"
+            android:layout_width="wrap_content"
+            android:id="@+id/content_phone_on_profile"
+            android:layout_below="@+id/content_email_on_profile"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="75dp"
+                  android:text="Phone"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:id="@+id/phone_on_profile"
+                  android:textColor="#000"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_toEndOf="@+id/foto_profile"
+            android:layout_width="wrap_content"
+            android:id="@+id/content_gender_on_profile"
+            android:layout_below="@+id/content_phone_on_profile"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="75dp"
+                  android:text="Gender"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:id="@+id/gender_on_profile"
+                  android:textColor="#000"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+          android:layout_marginTop="20dp"
+          android:id="@+id/v"
+          android:layout_below="@+id/content_gender_on_profile"
+          android:background="@android:color/transparent"
+          android:layout_height="1dp"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_below="@+id/v"
+                  android:layout_height="wrap_content">
+
+        <RelativeLayout android:layout_width="0dp"
+                      android:padding="10dp"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content">
+            <LinearLayout
+                    android:background="#005"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="#00f"
+                        android:text="EDIT"
+                        android:id="@+id/bt_edit"
+                        android:textColor="#fff"
+                        android:paddingHorizontal="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="0dp"
+                      android:padding="10dp"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content">
+            <LinearLayout
+                    android:layout_centerInParent="true"
+                    android:background="#500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="#f00"
+                        android:id="@+id/bt_logout"
+                        android:text="LOGOUT"
+                        android:textColor="#fff"
+                        android:paddingHorizontal="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

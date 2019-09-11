@@ -1,5 +1,6 @@
 package com.example.bogoods.page.seller
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -34,7 +35,7 @@ class DashboardSeller : AppCompatActivity(), NavigationView.OnNavigationItemSele
         fAuth = FirebaseAuth.getInstance()
         pref = Pref(this)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
+        val fab: FloatingActionButton = findViewById(R.id.add_store)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -119,7 +120,9 @@ class DashboardSeller : AppCompatActivity(), NavigationView.OnNavigationItemSele
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_profile -> {
-                // Handle the camera action
+                val intent = Intent(this@DashboardSeller, ProfileSeller::class.java)
+                intent.putExtra("job", "seller")
+                startActivity(intent)
             }
             R.id.nav_gallery -> {
 

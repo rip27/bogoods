@@ -12,7 +12,6 @@ import android.widget.Toast
 import com.example.bogoods.R
 import com.example.bogoods.data.Pref
 import com.example.bogoods.page.reseller.DashReseller
-import com.example.bogoods.page.seller.DashSeller
 import com.example.bogoods.page.seller.DashboardSeller
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -50,7 +49,6 @@ class LoginFragment : Fragment() {
             } else {
                 fAuth.signInWithEmailAndPassword(email, password)
                     .addOnSuccessListener {
-                        pref.setStatus(true)
                         FirebaseDatabase.getInstance().getReference("$job")
                             .addListenerForSingleValueEvent(object : ValueEventListener {
                                 override fun onCancelled(p0: DatabaseError) {
@@ -60,8 +58,10 @@ class LoginFragment : Fragment() {
                                 override fun onDataChange(p0: DataSnapshot) {
                                     val user = fAuth.currentUser
                                     if (job == "seller") {
+                                        pref.setStatusS(true)
                                         updateUIseller(user)
                                     } else {
+                                        pref.setStatusR(true)
                                         updateUIreseller(user)
                                     }
                                 }

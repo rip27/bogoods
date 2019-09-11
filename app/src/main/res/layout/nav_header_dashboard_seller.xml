@@ -16,7 +16,8 @@
     <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:padding="2dp"
+            android:background="@drawable/background_back"
             android:src="@drawable/ic_seller"
             android:contentDescription="@string/nav_header_desc"
             android:id="@+id/foto_profil_dashboard"/>

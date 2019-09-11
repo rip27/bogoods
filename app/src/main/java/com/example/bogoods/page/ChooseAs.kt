@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.bogoods.R
 import com.example.bogoods.data.Pref
 import com.example.bogoods.page.reseller.DashReseller
+import com.example.bogoods.page.seller.DashboardSeller
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.choose_as.*
 
@@ -36,13 +37,24 @@ class ChooseAs : AppCompatActivity() {
 
 //        SESSION AUTH
 
-        if (!pref.cekStatus()!!) {
+        if (!pref.cekStatusS()!!) {
 
         } else {
             startActivity(
                 Intent(
                     this,
-                    DashReseller::class.java
+                    DashboardSeller::class.java
+                )
+            )
+            finish()
+        }
+        if (!pref.cekStatusR()!!) {
+
+        } else {
+            startActivity(
+                Intent(
+                    this,
+                    DashboardSeller::class.java
                 )
             )
             finish()

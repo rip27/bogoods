@@ -52,7 +52,7 @@ class DashReseller : AppCompatActivity() {
 
         logout.setOnClickListener {
             firebaseAuth.signOut()
-            pref.setStatus(false)
+            pref.setStatusR(false)
             startActivity(Intent(this@DashReseller, SplashScreen::class.java))
             finish()
         }
