@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.bogoods">
+        package="com.example.bogoods">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
             android:allowBackup="true"
@@ -12,30 +12,37 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".page.seller.EditProfileSeller" android:parentActivityName=".page.seller.ProfileSeller">
-        </activity>
         <activity
-                android:name=".page.seller.ProfileSeller"
-                android:parentActivityName=".page.seller.DashboardSeller">
-        </activity>
+                android:name=".page.reseller.DashboardReseller"
+                android:label="@string/title_activity_dashboard_reseller"
+                android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-                android:name=".page.seller.DashboardSeller"
+                android:name=".page.reseller.EditProfileReseller"
+                android:parentActivityName=".page.reseller.ProfileReseller"></activity>
+        <activity
+                android:name=".page.reseller.ProfileReseller"
+                android:parentActivityName=".page.reseller.DashboardReseller"></activity>
+
+
+        <activity
+                android:name=".page.EditProfile"
+                android:parentActivityName=".page.reseller.ProfileReseller"></activity>
+        <activity
+                android:name=".page.Profile"
+                android:parentActivityName=".page.Dashboard"></activity>
+        <activity
+                android:name=".page.Dashboard"
                 android:label="@string/title_activity_dashboard_seller"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".page.reseller.DashReseller">
-        </activity>
-        <activity android:name=".page.seller.DashSeller">
-        </activity>
-        <activity android:name=".page.Auth">
-        </activity>
-        <activity android:name=".page.ChooseAs">
-        </activity>
+                android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
+        <activity android:name=".page.Auth"></activity>
+        <activity android:name=".page.ChooseAs"></activity>
         <activity android:name=".page.SplashScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

@@ -58,4 +58,13 @@ class Pref {
     fun cekStatusR(): Boolean? {
         return sharedSet.getBoolean(statusLogin, false)
     }
+    fun setStatus(status: Boolean) {
+        val edit = sharedSet.edit()
+        edit.putBoolean(statusLogin, status)
+        edit.apply()
+    }
+
+    fun cekStatus(): Boolean? {
+        return sharedSet.getBoolean(statusLogin, false)
+    }
 }

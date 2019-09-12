@@ -1,4 +1,4 @@
-package com.example.bogoods.page.seller
+package com.example.bogoods.page
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,9 +17,9 @@ import com.example.bogoods.R
 import com.example.bogoods.data.Pref
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.nav_header_dashboard_seller.*
+import kotlinx.android.synthetic.main.nav_header_dashboard.*
 
-class DashboardSeller : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var dbRef: DatabaseReference
     lateinit var fAuth: FirebaseAuth
@@ -27,7 +27,7 @@ class DashboardSeller : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dashboard_seller)
+        setContentView(R.layout.dashboard)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -52,7 +52,7 @@ class DashboardSeller : AppCompatActivity(), NavigationView.OnNavigationItemSele
             .child("profile").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    Glide.with(this@DashboardSeller).load(p0.value.toString())
+                    Glide.with(this@Dashboard).load(p0.value.toString())
                         .centerCrop()
                         .error(R.drawable.ic_seller)
                         .into(foto_profil_dashboard)
@@ -102,7 +102,7 @@ class DashboardSeller : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.dashboard_seller, menu)
+        menuInflater.inflate(R.menu.dashboard, menu)
         return true
     }
 
@@ -120,7 +120,7 @@ class DashboardSeller : AppCompatActivity(), NavigationView.OnNavigationItemSele
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_profile -> {
-                val intent = Intent(this@DashboardSeller, ProfileSeller::class.java)
+                val intent = Intent(this@Dashboard, Profile::class.java)
                 intent.putExtra("job", "seller")
                 startActivity(intent)
             }
