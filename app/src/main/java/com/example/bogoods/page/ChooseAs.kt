@@ -5,15 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bogoods.R
 import com.example.bogoods.data.Pref
-import com.example.bogoods.page.reseller.DashReseller
-import com.example.bogoods.page.seller.DashboardSeller
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.choose_as.*
 
 class ChooseAs : AppCompatActivity() {
 
     var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    lateinit var pref : Pref
+    lateinit var pref: Pref
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,22 +38,31 @@ class ChooseAs : AppCompatActivity() {
         if (!pref.cekStatusS()!!) {
 
         } else {
+            val intent = Intent(
+                this,
+                Dashboard::class.java
+            )
+
+            intent.putExtra("job", "seller")
+
             startActivity(
-                Intent(
-                    this,
-                    DashboardSeller::class.java
-                )
+                intent
             )
             finish()
         }
         if (!pref.cekStatusR()!!) {
 
         } else {
+            val intent = Intent(
+                this,
+                Dashboard::class.java
+            )
+
+            intent.putExtra("job", "reseller")
+
+
             startActivity(
-                Intent(
-                    this,
-                    DashboardSeller::class.java
-                )
+                intent
             )
             finish()
         }

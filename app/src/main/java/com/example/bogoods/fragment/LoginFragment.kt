@@ -11,8 +11,7 @@ import android.widget.Toast
 
 import com.example.bogoods.R
 import com.example.bogoods.data.Pref
-import com.example.bogoods.page.reseller.DashReseller
-import com.example.bogoods.page.seller.DashboardSeller
+import com.example.bogoods.page.Dashboard
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -59,10 +58,10 @@ class LoginFragment : Fragment() {
                                     val user = fAuth.currentUser
                                     if (job == "seller") {
                                         pref.setStatusS(true)
-                                        updateUIseller(user)
+                                        updateUI(user)
                                     } else {
                                         pref.setStatusR(true)
-                                        updateUIreseller(user)
+                                        updateUI(user)
                                     }
                                 }
 
@@ -84,15 +83,15 @@ class LoginFragment : Fragment() {
     fun updateUIseller(user: FirebaseUser?) {
         if (user != null) {
             pref.saveUID(user.uid)
-            startActivity(Intent(context, DashboardSeller::class.java))
+            startActivity(Intent(context, Dashboard::class.java))
         } else {
             Log.e("TAG_ERROR", "user tidak ada")
         }
     }
-    fun updateUIreseller(user: FirebaseUser?) {
+    fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             pref.saveUID(user.uid)
-            startActivity(Intent(context, DashReseller::class.java))
+            startActivity(Intent(context, Dashboard::class.java))
         } else {
             Log.e("TAG_ERROR", "user tidak ada")
         }

@@ -1,4 +1,4 @@
-package com.example.bogoods.page.seller
+package com.example.bogoods.page
 
 import android.Manifest
 import android.app.Activity
@@ -22,11 +22,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.edit_profile_seller.*
-import kotlinx.android.synthetic.main.profile_seller.*
+import kotlinx.android.synthetic.main.edit_profile.*
 import java.io.IOException
 
-class EditProfileSeller : AppCompatActivity() {
+class EditProfile : AppCompatActivity() {
 
     lateinit var fAuth: FirebaseAuth
     lateinit var dbRef: DatabaseReference
@@ -40,7 +39,7 @@ class EditProfileSeller : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.edit_profile_seller)
+        setContentView(R.layout.edit_profile)
         setSupportActionBar(toolbarEditSeller)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
@@ -82,9 +81,9 @@ class EditProfileSeller : AppCompatActivity() {
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
-                        Glide.with(this@EditProfileSeller)
+                        Glide.with(this@EditProfile)
                             .load(p0.value.toString())
-                            .error(R.drawable.ic_seller)
+                            .error(R.drawable.ic_reseller)
                             .into(foto_profile_seller_edit)
                     }
 
