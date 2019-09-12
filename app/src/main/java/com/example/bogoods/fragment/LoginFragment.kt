@@ -58,10 +58,10 @@ class LoginFragment : Fragment() {
                                     val user = fAuth.currentUser
                                     if (job == "seller") {
                                         pref.setStatusS(true)
-                                        updateUI(user)
-                                    } else {
+                                        updateUI(user, job)
+                                    } else if (job == "reseller"){
                                         pref.setStatusR(true)
-                                        updateUI(user)
+                                        updateUI(user, job)
                                     }
                                 }
 
@@ -80,18 +80,12 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun updateUIseller(user: FirebaseUser?) {
+    fun updateUI(user: FirebaseUser?, job: String) {
         if (user != null) {
             pref.saveUID(user.uid)
-            startActivity(Intent(context, Dashboard::class.java))
-        } else {
-            Log.e("TAG_ERROR", "user tidak ada")
-        }
-    }
-    fun updateUI(user: FirebaseUser?) {
-        if (user != null) {
-            pref.saveUID(user.uid)
-            startActivity(Intent(context, Dashboard::class.java))
+            val intent = Intent(context, Dashboard::class.java)
+            intent.putExtra("job", job)
+            startActivity(intent)
         } else {
             Log.e("TAG_ERROR", "user tidak ada")
         }

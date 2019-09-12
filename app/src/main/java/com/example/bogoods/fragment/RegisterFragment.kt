@@ -66,7 +66,7 @@ class RegisterFragment : Fragment() {
     private fun addUserToFirebase(name: String, phone: String, gender: String, email: String, password: String) {
         val uid = fAuth.currentUser?.uid
         val job = activity!!.intent.getStringExtra("job")
-        dbRef = FirebaseDatabase.getInstance().getReference("$job/$uid")
+        dbRef = FirebaseDatabase.getInstance().getReference("user/$uid")
         dbRef.child("/id").setValue(uid)
         dbRef.child("/name").setValue(name)
         dbRef.child("/phone").setValue(phone)

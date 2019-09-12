@@ -25,9 +25,9 @@ class Auth : AppCompatActivity() {
 
 //        SHOW JOB
         if (job == "seller"){
-            tv_job.text = "I'm Seller"
+            tv_job_on_auth.text = "I'm Seller"
         }else{
-            tv_job.text = "I'm Reseller"
+            tv_job_on_auth.text = "I'm Reseller"
         }
 
         val fragmentAdapter = AuthAdapter(supportFragmentManager)

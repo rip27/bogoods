@@ -11,8 +11,17 @@
                     android:layout_alignParentTop="true"
                     android:id="@+id/header_layout_profile"
                     android:layout_height="150dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_alignParentTop="true"
+                  android:id="@+id/tv_job_on_profile"
+                  android:textAllCaps="true"
+                  android:layout_marginTop="20dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                  android:layout_centerHorizontal="true"
+                  android:layout_height="wrap_content"/>
         <ImageView
-                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:layout_height="100dp"
                 android:layout_width="200dp"
                 android:src="@drawable/bogoods_text"/>
