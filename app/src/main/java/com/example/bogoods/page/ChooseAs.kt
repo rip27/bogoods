@@ -19,7 +19,7 @@ class ChooseAs : AppCompatActivity() {
         pref = Pref(this)
 //        WHEN CLICKED IMAGE RESELLER
         im_reseller.setOnClickListener {
-            val intent = Intent(this@ChooseAs, Auth::class.java)
+            val intent = Intent(this@ChooseAs, Login::class.java)
 //            PUT STRING JOB
             intent.putExtra("job", "reseller")
             startActivity(intent)
@@ -27,7 +27,7 @@ class ChooseAs : AppCompatActivity() {
 
 //        WHEN CLICKED IMAGE SELLER
         im_seller.setOnClickListener {
-            val intent = Intent(this@ChooseAs, Auth::class.java)
+            val intent = Intent(this@ChooseAs, Login::class.java)
 //            PUT STRING JOB
             intent.putExtra("job", "seller")
             startActivity(intent)

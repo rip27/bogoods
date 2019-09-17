@@ -34,7 +34,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
         fAuth = FirebaseAuth.getInstance()
         pref = Pref(this)
-        val jb = intent.getStringExtra("job")
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)

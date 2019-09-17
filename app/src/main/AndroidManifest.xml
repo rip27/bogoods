@@ -12,7 +12,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".page.Store" android:parentActivityName=".page.Dashboard">
+        <activity android:name=".page.Login">
+        </activity>
+        <activity
+                android:name=".page.Store"
+                android:parentActivityName=".page.Dashboard">
         </activity>
         <activity
                 android:name=".page.EditProfile"
@@ -24,7 +28,6 @@
                 android:name=".page.Dashboard"
                 android:label="@string/title_activity_dashboard_seller"
                 android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".page.Auth"/>
         <activity android:name=".page.ChooseAs"/>
         <activity android:name=".page.SplashScreen">
             <intent-filter>
