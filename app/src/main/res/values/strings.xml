@@ -8,7 +8,7 @@
         <item>Laki-Laki</item>
         <item>Perempuan</item>
     </string-array>
-    <string name="title_activity_dashboard_seller">Dashboard Seller</string>
+    <string name="title_activity_dashboard_seller">Dashboard BoGoods</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -17,14 +17,10 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_profile">Profile</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_store">My Store</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="title_activity_dashboard_reseller">Dashboard Reseller</string>
-
-    <string name="menu_home">Home</string>
-    <string name="profile">Profile</string>
 
 </resources>

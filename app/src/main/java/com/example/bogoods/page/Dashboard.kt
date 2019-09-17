@@ -35,11 +35,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         fAuth = FirebaseAuth.getInstance()
         pref = Pref(this)
 
-        val fab: FloatingActionButton = findViewById(R.id.add_store)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
@@ -48,7 +43,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        FirebaseDatabase.getInstance().getReference("seller/${fAuth.currentUser?.uid}")
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
             .child("profile").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -64,7 +59,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             })
 
 
-        FirebaseDatabase.getInstance().getReference("seller/${fAuth.currentUser?.uid}")
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -75,7 +70,18 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
                 }
             })
-        FirebaseDatabase.getInstance().getReference("seller/${fAuth.currentUser?.uid}")
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
+            .child("job").addListenerForSingleValueEvent(object : ValueEventListener {
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    tv_job_on_dashboard.text = p0.value.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+            })
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
             .child("email").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -118,14 +124,17 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+        val jb = intent.getStringExtra("job")
         when (item.itemId) {
             R.id.nav_profile -> {
                 val intent = Intent(this@Dashboard, Profile::class.java)
-                intent.putExtra("job", "seller")
+                intent.putExtra("job", jb)
                 startActivity(intent)
             }
-            R.id.nav_gallery -> {
-
+            R.id.nav_store -> {
+                val intent = Intent(this@Dashboard, Store::class.java)
+                intent.putExtra("job", jb)
+                startActivity(intent)
             }
             R.id.nav_slideshow -> {
 

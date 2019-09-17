@@ -73,7 +73,7 @@ class EditProfile : AppCompatActivity() {
             }
         }
 
-        FirebaseDatabase.getInstance().getReference("seller/$uid")
+        FirebaseDatabase.getInstance().getReference("user/$uid")
             .child("profile").addListenerForSingleValueEvent(
                 object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
@@ -90,7 +90,7 @@ class EditProfile : AppCompatActivity() {
                 }
             )
 
-        FirebaseDatabase.getInstance().getReference("seller/$uid")
+        FirebaseDatabase.getInstance().getReference("user/$uid")
             .child("name").addListenerForSingleValueEvent(
                 object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
@@ -103,7 +103,7 @@ class EditProfile : AppCompatActivity() {
 
                 }
             )
-        FirebaseDatabase.getInstance().getReference("seller/$uid")
+        FirebaseDatabase.getInstance().getReference("user/$uid")
             .child("phone").addListenerForSingleValueEvent(
                 object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
@@ -117,7 +117,7 @@ class EditProfile : AppCompatActivity() {
                 }
             )
 
-        FirebaseDatabase.getInstance().getReference("seller/$uid")
+        FirebaseDatabase.getInstance().getReference("user/$uid")
             .child("gender").addListenerForSingleValueEvent(
                 object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
@@ -191,7 +191,7 @@ class EditProfile : AppCompatActivity() {
                 .child("$uidUser/profile/${pref.getUIDD()}.${GetFileExtension(filePathImage)}")
             storageRef.putFile(filePathImage).addOnSuccessListener {
                 storageRef.downloadUrl.addOnSuccessListener {
-                    dbRef.child("seller/$uidUser/profile").setValue(it.toString())
+                    dbRef.child("user/$uidUser/profile").setValue(it.toString())
                 }
             }.addOnFailureListener {
                 Log.e("TAG_ERROR", it.message)
@@ -202,9 +202,9 @@ class EditProfile : AppCompatActivity() {
         } catch (e: UninitializedPropertyAccessException) {
             Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
         }
-        dbRef.child("seller/$uidUser/name").setValue(eteditnamao)
-        dbRef.child("seller/$uidUser/phone").setValue(eteditphoneo)
-        dbRef.child("seller/$uidUser/gender").setValue(speditgender)
+        dbRef.child("user/$uidUser/name").setValue(eteditnamao)
+        dbRef.child("user/$uidUser/phone").setValue(eteditphoneo)
+        dbRef.child("user/$uidUser/gender").setValue(speditgender)
         Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
         Handler().postDelayed({
             onBackPressed()
