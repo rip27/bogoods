@@ -28,7 +28,6 @@ class Profile : AppCompatActivity() {
         pref = Pref(this)
         fAuth = FirebaseAuth.getInstance()
         val uid = fAuth.currentUser?.uid
-        val job = intent.getStringExtra("job")
 
         FirebaseDatabase.getInstance().getReference("user/$uid")
             .child("job").addListenerForSingleValueEvent(
@@ -119,8 +118,7 @@ class Profile : AppCompatActivity() {
 
         bt_logout.setOnClickListener {
             fAuth.signOut()
-            pref.setStatusS(false)
-            pref.setStatusR(false)
+            pref.setStatus(false)
             startActivity(Intent(this@Profile, SplashScreen::class.java))
             finish()
         }

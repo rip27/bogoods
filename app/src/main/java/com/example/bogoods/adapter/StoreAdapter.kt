@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.example.bogoods.data.Pref
 import com.example.bogoods.model.StoreModel
 import com.example.bogoods.model.UserModel
+import com.example.bogoods.page.ListBarang
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
@@ -67,6 +68,11 @@ class StoreAdapter : RecyclerView.Adapter<StoreAdapter.JointViewHolder> {
                     Log.e("cok", holder.message)
                 }
             })
+        holder.ll.setOnClickListener {
+            val intent = Intent(mCtx, ListBarang::class.java)
+            intent.putExtra("idstore", storeModel.idstore)
+            mCtx.startActivity(intent)
+        }
     }
 
     inner class JointViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

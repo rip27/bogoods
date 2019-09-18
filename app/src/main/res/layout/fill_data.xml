@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".page.FillData">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar_filldata"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            app:title="Insert Your Data"
+            android:layout_height="wrap_content"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#33f"
+        android:layout_below="@+id/toolbar_filldata"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+        <ImageView android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:padding="4dp"
+                android:id="@+id/photo_profile_fd"
+                android:background="@drawable/bg_ic_choose_as"
+                android:src="@drawable/ic_reseller"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:id="@+id/set_pp"
+            android:text="Set Photo Profile"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/gradient_rounded">
+            <EditText
+                    android:id="@+id/et_name_fd"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/shape_et_auth"
+                    android:hint="Nama"
+                    android:inputType="textPersonName"
+                    android:paddingHorizontal="10dp"
+                    android:textColorHint="#666"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/gradient_rounded">
+            <EditText
+                    android:id="@+id/et_phone_fd"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/shape_et_auth"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:paddingHorizontal="10dp"
+                    android:textColorHint="#666"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/gradient_rounded"
+                android:layout_height="wrap_content">
+            <Spinner
+                    android:layout_margin="2dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/shape_et_auth"
+                    android:id="@+id/sp_gender_fd"
+                    android:paddingHorizontal="10dp"
+                    android:entries="@array/gender"
+                    android:inputType="phone"
+                    android:textColorHint="#666"
+                    android:layout_height="50dp"/>
+        </LinearLayout>
+
+        <ProgressBar
+                android:id="@+id/progressLogin"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressBackgroundTint="@android:color/black"
+                android:visibility="gone"/>
+
+        <Button android:id="@+id/bt_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:alpha="0.8"
+                android:background="@drawable/button_blue_rounded"
+                android:paddingHorizontal="50dp"
+                android:paddingVertical="15dp"
+                android:text="SAVE"
+                android:textColor="#fff"
+                android:textSize="22sp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
