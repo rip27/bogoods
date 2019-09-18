@@ -19,7 +19,7 @@ class ChooseAs : AppCompatActivity() {
         pref = Pref(this)
 //        WHEN CLICKED IMAGE RESELLER
         im_reseller.setOnClickListener {
-            val intent = Intent(this@ChooseAs, Login::class.java)
+            val intent = Intent(this@ChooseAs, FillData::class.java)
 //            PUT STRING JOB
             intent.putExtra("job", "reseller")
             startActivity(intent)
@@ -27,7 +27,7 @@ class ChooseAs : AppCompatActivity() {
 
 //        WHEN CLICKED IMAGE SELLER
         im_seller.setOnClickListener {
-            val intent = Intent(this@ChooseAs, Login::class.java)
+            val intent = Intent(this@ChooseAs, FillData::class.java)
 //            PUT STRING JOB
             intent.putExtra("job", "seller")
             startActivity(intent)
@@ -35,37 +35,6 @@ class ChooseAs : AppCompatActivity() {
 
 //        SESSION AUTH
 
-        if (!pref.cekStatusS()!!) {
-
-        } else {
-            val intent = Intent(
-                this,
-                Dashboard::class.java
-            )
-
-            intent.putExtra("job", "seller")
-
-            startActivity(
-                intent
-            )
-            finish()
-        }
-        if (!pref.cekStatusR()!!) {
-
-        } else {
-            val intent = Intent(
-                this,
-                Dashboard::class.java
-            )
-
-            intent.putExtra("job", "reseller")
-
-
-            startActivity(
-                intent
-            )
-            finish()
-        }
 
     }
 }

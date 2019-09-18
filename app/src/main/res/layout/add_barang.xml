@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="20dp">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/content_storename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_gradient_round">
+        <TextView
+                android:text="Nama Barang"
+                android:textColor="@android:color/white"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:id="@+id/et_nama_barang"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/shape_et_auth"
+                android:hint="Nama Barang"
+                android:inputType="text"
+                android:paddingHorizontal="10dp"
+                android:textColorHint="#666"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/content_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/content_storename"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_gradient_round">
+        <TextView
+                android:text="HARGA ( RUPIAH )"
+                android:textColor="@android:color/white"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:id="@+id/et_harga"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/shape_et_auth"
+                android:hint="Harga"
+                android:inputType="number"
+                android:paddingHorizontal="10dp"
+                android:textColorHint="#666"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/content_slot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/content_address"
+            android:layout_margin="10dp"
+            android:background="@drawable/blue_gradient_round">
+        <TextView
+                android:text="SLOT"
+                android:textColor="@android:color/white"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:id="@+id/et_slot"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/shape_et_auth"
+                android:hint="Slot"
+                android:inputType="number"
+                android:paddingHorizontal="10dp"
+                android:textColorHint="#666"/>
+    </LinearLayout>
+    <ProgressBar
+            android:progressBackgroundTint="@android:color/black"
+            android:id="@+id/progressAddBarang"
+            android:visibility="gone"
+            android:layout_below="@+id/content_slot"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

@@ -7,5 +7,6 @@ data class StoreModel (
     var address: String? = null,
     var status: String? = null,
     var idpemilik: String? = null,
+    var idstore: String? = null,
     var usermodel: UserModel? = null
 )

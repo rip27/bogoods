@@ -17,6 +17,7 @@ import com.example.bogoods.R
 import com.example.bogoods.data.Pref
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.content_dashboard.*
 import kotlinx.android.synthetic.main.nav_header_dashboard.*
 
 class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -63,7 +64,9 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    nama_dashboard.text = p0.value.toString()
+                    val name = p0.value.toString()
+                    nama_dashboard.text = name
+                    welcomename.text = "Welcome " + name
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -125,6 +128,20 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val jb = intent.getStringExtra("job")
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
+            .child("job").addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    val jobo = p0.value.toString()
+                    if (jobo == "reseller"){
+
+                    }
+                }
+
+            })
         when (item.itemId) {
             R.id.nav_profile -> {
                 val intent = Intent(this@Dashboard, Profile::class.java)

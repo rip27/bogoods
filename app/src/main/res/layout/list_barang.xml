@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".page.Store">
+        tools:context=".page.ListBarang">
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_store"
-            app:title="Store"
+            android:id="@+id/toolbar_list_barang"
+            app:title=""
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -17,30 +16,18 @@
     <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-        android:layout_below="@+id/toolbar_store"
-        android:background="#33f"/>
-
-    <TextView android:layout_width="wrap_content"
-              android:visibility="gone"
-              android:id="@+id/tv_warning"
-              android:layout_below="@+id/toolbar_store"
-              android:layout_marginTop="20dp"
-              android:textColor="#f00"
-              android:textStyle="bold"
-              android:layout_centerHorizontal="true"
-              android:text="ANDA BUKAN SELLER"
-              android:textAppearance="@style/TextAppearance.AppCompat.Large"
-              android:layout_height="wrap_content"/>
+            android:layout_below="@+id/toolbar_list_barang"
+            android:background="#33f"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:id="@+id/rc_store"
+            android:id="@+id/rc_barang"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/toolbar_store"
+            android:layout_below="@+id/toolbar_list_barang"
             android:layout_height="match_parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_store"
+            android:id="@+id/add_barang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -48,5 +35,6 @@
             android:src="@drawable/ic_add_white"
             android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="#3333FE"/>
+
 
 </RelativeLayout>

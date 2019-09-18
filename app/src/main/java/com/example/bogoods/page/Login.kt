@@ -26,7 +26,6 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.login)
         pref = Pref(this)
         fAuth = FirebaseAuth.getInstance()
-        val job = intent.getStringExtra("job")
         bt_login.setOnClickListener {
             bt_login.visibility = View.GONE
             progressLogin.visibility = View.VISIBLE
@@ -47,13 +46,8 @@ class Login : AppCompatActivity() {
 
                                 override fun onDataChange(p0: DataSnapshot) {
                                     val user = fAuth.currentUser
-                                    if (job == "seller") {
-                                        pref.setStatusS(true)
-                                        updateUI(user, job)
-                                    } else if (job == "reseller"){
-                                        pref.setStatusR(true)
-                                        updateUI(user, job)
-                                    }
+                                    pref.setStatus(true)
+                                    updateUI(user)
                                 }
 
                             })
@@ -69,13 +63,37 @@ class Login : AppCompatActivity() {
                     }
             }
         }
+        if (!pref.cekStatus()!!) {
+        } else {
+            val intent = Intent(
+                this,
+                Dashboard::class.java
+            )
+            startActivity(
+                intent
+            )
+            finish()
+        }
     }
 
-    fun updateUI(user: FirebaseUser?, job: String) {
+    fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             pref.saveUID(user.uid)
-            val intent = Intent(this@Login, Dashboard::class.java)
-            intent.putExtra("job", job)
+            FirebaseDatabase.getInstance().getReference("user/${user.uid}")
+                .addListenerForSingleValueEvent(object : ValueEventListener{
+                    override fun onCancelled(p0: DatabaseError) {
+
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if (p0.exists()){
+                            val intent = Intent(this@Login, Dashboard::class.java)
+                            startActivity(intent)
+                        }
+                    }
+
+                })
+            val intent = Intent(this@Login, ChooseAs::class.java)
             startActivity(intent)
         } else {
             Log.e("TAG_ERROR", "user tidak ada")
