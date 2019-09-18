@@ -20,3 +20,12 @@ Route::get('/login', function () {
 Route::get('/index', function () {
     return view('index');
 });
+Route::get('/admin', function () {
+    return view('admin/admin');
+});
+Route::get('/admin/datauser', function () {
+    return view('admin/datauser');
+});
+Route::get('/admin/datastore', function () {
+    return view('admin/datastore');
+});

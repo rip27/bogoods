@@ -63,26 +63,6 @@
                 </div>
                 <div class="modal-body" style="margin:20px">
                     <div class="form-group has-feedback">
-                        <input id="nameregister" type="text" class="form-control" placeholder="Name">
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                      </div>
-                      <div class="form-group has-feedback">
-                        <input id="phoneregister" type="number" class="form-control" placeholder="Phone">
-                        <span class="glyphicon glyphicon-phone form-control-feedback"></span>
-                      </div>
-                      <div class="form-group has-feedback">
-                            <select id="gender" class="form-control">
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="form-group has-feedback">
-                                <select id="job" class="form-control">
-                                    <option value="seller">Seller</option>
-                                    <option value="reseller">Reseller</option>
-                                </select>
-                            </div>
-                    <div class="form-group has-feedback">
                         <input id="emailregister" type="email" class="form-control" placeholder="Email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                       </div>
@@ -126,6 +106,7 @@
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
+    var user = firebase.auth().currentUser
     var displayName = user.displayName;
     var email = user.email;
     var emailVerified = user.emailVerified;
@@ -133,21 +114,23 @@
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     var providerData = user.providerData;
-    window.location.href = "{{url('index')}}";
-    // ...
+    firebase.database().ref('user/' + uid).once('value').then(function(snapshot){
+      
+      var job = (snapshot.val() && snapshot.val().job) || 'ANCOK';
+      
+      if (job == "admin") {
+            window.location.href = "{{url('admin')}}";
+        }else{
+          window.location.href = "{{url('index')}}";         
+        }
+    });
   } else {
-    // User is signed out.
-    // ...
   }
 });
 
 function daftar(){
     var email = $("#emailregister").val();
 var password = $("#passwordregister").val();
-    var name = $("#nameregister").val();
-var phone = $("#phoneregister").val();
-    var gender = $("#gender").val();
-var job = $("#job").val();
 
 // alert(passsword);
 //Register auth
@@ -158,15 +141,7 @@ firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(e
     
   
 var uid = firebase.auth().currentUser.uid;
-    firebase.database().ref('user/' + uid).set({
-    id:uid,
-        email:email,
-        password:password,
-        name:name,
-        phone:phone,
-        gender:gender,
-        job:job
-    });
+    
   window.alert(errorMessage);
   // ...
     });
@@ -174,11 +149,6 @@ var uid = firebase.auth().currentUser.uid;
 
     $("#emailregister").val("");
 $("#passwordregister").val("");
-    $("#nameregister").val("");
-$("#phoneregister").val("");
-$("#gender").val(0);
-$("#job").val(0);
-
 }
 
 function login(){
@@ -192,7 +162,7 @@ firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error
   // ...
   console.log(errorCode);
     console.log(errorMessage);
-  window.alert("error : " + errorMessage);
+  window.alert("SALAH : " + errorMessage);
     });
 
 }
