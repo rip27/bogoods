@@ -6,18 +6,18 @@
                 android:paddingVertical="20dp">
 
     <LinearLayout
-            android:orientation="vertical"
             android:id="@+id/content_storename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@drawable/blue_gradient_round">
+            android:background="@drawable/blue_gradient_round"
+            android:orientation="vertical">
         <TextView
-                android:text="Nama Barang"
-                android:textColor="@android:color/white"
-                android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Nama Barang"
+                android:textColor="@android:color/white"/>
 
         <EditText
                 android:id="@+id/et_nama_barang"
@@ -30,65 +30,78 @@
                 android:paddingHorizontal="10dp"
                 android:textColorHint="#666"/>
     </LinearLayout>
-    <LinearLayout
-            android:id="@+id/content_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@+id/content_storename"
-            android:layout_margin="10dp"
-            android:background="@drawable/blue_gradient_round">
-        <TextView
-                android:text="HARGA ( RUPIAH )"
-                android:textColor="@android:color/white"
-                android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/content_storename"
+                  android:layout_margin="10dp">
 
-        <EditText
-                android:id="@+id/et_harga"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/shape_et_auth"
-                android:hint="Harga"
-                android:inputType="number"
-                android:paddingHorizontal="10dp"
-                android:textColorHint="#666"/>
-    </LinearLayout>
+        <ImageView android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:padding="20dp"
+                   android:id="@+id/image_barang"
+                   android:background="@drawable/round"
+                   android:src="@drawable/bogoods_with_gradient"
+                   android:layout_height="175dp"/>
 
-    <LinearLayout
-            android:id="@+id/content_slot"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@+id/content_address"
-            android:layout_margin="10dp"
-            android:background="@drawable/blue_gradient_round">
-        <TextView
-                android:text="SLOT"
-                android:textColor="@android:color/white"
-                android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <EditText
-                android:id="@+id/et_slot"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/shape_et_auth"
-                android:hint="Slot"
-                android:inputType="number"
-                android:paddingHorizontal="10dp"
-                android:textColorHint="#666"/>
+        <LinearLayout android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:orientation="vertical">
+            <LinearLayout
+                    android:id="@+id/content_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/content_storename"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/blue_gradient_round"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="HARGA ( RUPIAH )"
+                        android:textColor="@android:color/white"/>
+
+                <EditText
+                        android:id="@+id/et_harga"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_auth"
+                        android:hint="Harga"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:textColorHint="#666"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/content_slot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/content_address"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/blue_gradient_round"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="SLOT"
+                        android:textColor="@android:color/white"/>
+                <EditText
+                        android:id="@+id/et_stok"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_auth"
+                        android:hint="Slot"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:textColorHint="#666"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
-    <ProgressBar
-            android:progressBackgroundTint="@android:color/black"
-            android:id="@+id/progressAddBarang"
-            android:visibility="gone"
-            android:layout_below="@+id/content_slot"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
 </RelativeLayout>

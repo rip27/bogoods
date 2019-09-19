@@ -161,22 +161,6 @@
 
 <script>
 
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
- 
-//     var uid = user.uid;
-//     // var displayName = user.displayName;
-//     var email = user.email;
-//     alert(uid);
-//     // ...
-//   } else {
-//     // User is signed out.
-//     // ...\
-
-//     window.location.href = "{{url('login')}}";
-//   }
-// });  
-
   var databaseRef = firebase.database().ref('store/');
   var lastIndex = 0;
 
