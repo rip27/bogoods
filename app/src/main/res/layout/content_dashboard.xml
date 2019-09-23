@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/welcomename"
                 android:layout_marginStart="10dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 />
@@ -43,7 +43,7 @@
                 android:id="@+id/welcomejob"
                 android:textAllCaps="true"
                 android:layout_marginStart="10dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:layout_below="@+id/welcomename"
                 android:layout_alignParentStart="true"
                 />
@@ -74,6 +74,26 @@
 
                 <LinearLayout
                         android:layout_weight="1"
+                        android:visibility="gone"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:id="@+id/my_store"
+                        android:layout_height="wrap_content">
+                    <ImageView
+                            android:src="@drawable/ic_store_blue"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
+                    <TextView
+                            android:textColor="@android:color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="My Store"
+                    />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:gravity="center"
                         android:orientation="vertical"
@@ -81,14 +101,14 @@
                         android:layout_height="wrap_content">
                     <ImageView
                             android:src="@drawable/ic_add_shopping_cart_blue"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
                     <TextView
                             android:textColor="@android:color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Add Order"
-                            />
+                    />
                 </LinearLayout>
                 <LinearLayout
                         android:layout_weight="1"
@@ -100,13 +120,13 @@
                         android:layout_height="wrap_content">
                     <ImageView
                             android:src="@drawable/ic_shopping_basket_blue"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
                     <TextView
                             android:textColor="@android:color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Accept Order"
+                            android:text="Acc Order"
                             />
                 </LinearLayout>
                 <LinearLayout
@@ -118,8 +138,8 @@
                         android:layout_height="wrap_content">
                     <ImageView
                             android:src="@drawable/ic_playlist_add_blue"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
                     <TextView
                             android:textColor="@android:color/black"
                             android:layout_width="wrap_content"
@@ -137,13 +157,13 @@
                         android:layout_height="wrap_content">
                     <ImageView
                             android:src="@drawable/ic_playlist_add_check_blue"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
                     <TextView
                             android:textColor="@android:color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Req Connection"
+                            android:text="Acc Connection"
                             />
                 </LinearLayout>
 

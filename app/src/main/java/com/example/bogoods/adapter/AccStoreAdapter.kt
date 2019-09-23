@@ -18,6 +18,7 @@ import com.example.bogoods.data.Pref
 import com.example.bogoods.model.StoreModel
 import com.example.bogoods.model.UserModel
 import com.example.bogoods.page.ListBarang
+import com.example.bogoods.page.ListRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
@@ -38,7 +39,7 @@ class AccStoreAdapter : RecyclerView.Adapter<AccStoreAdapter.AccstoreViewHolder>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccstoreViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_list_req_store, parent, false)
+            .inflate(R.layout.item_list_accept_store, parent, false)
         val viewHolder = AccstoreViewHolder(view)
         return viewHolder
     }
@@ -72,7 +73,9 @@ class AccStoreAdapter : RecyclerView.Adapter<AccStoreAdapter.AccstoreViewHolder>
                 }
             })
         holder.ll.setOnClickListener {
-
+            val intent = Intent(mCtx, ListRequest::class.java)
+            intent.putExtra("idstore", storeModel.idstore)
+            mCtx.startActivity(intent)
         }
     }
 

@@ -29,19 +29,19 @@ class Profile : AppCompatActivity() {
         fAuth = FirebaseAuth.getInstance()
         val uid = fAuth.currentUser?.uid
 
-        FirebaseDatabase.getInstance().getReference("user/$uid")
-            .child("job").addListenerForSingleValueEvent(
-                object : ValueEventListener{
-                    override fun onCancelled(p0: DatabaseError) {
-
-                    }
-
-                    override fun onDataChange(p0: DataSnapshot) {
-                        tv_job_on_profile.text = p0.value.toString()
-                    }
-
-                }
-            )
+//        FirebaseDatabase.getInstance().getReference("user/$uid")
+//            .child("job").addListenerForSingleValueEvent(
+//                object : ValueEventListener{
+//                    override fun onCancelled(p0: DatabaseError) {
+//
+//                    }
+//
+//                    override fun onDataChange(p0: DataSnapshot) {
+//                        tv_job_on_profile.text = p0.value.toString()
+//                    }
+//
+//                }
+//            )
 
         FirebaseDatabase.getInstance().getReference("user/$uid")
             .child("profile").addListenerForSingleValueEvent(

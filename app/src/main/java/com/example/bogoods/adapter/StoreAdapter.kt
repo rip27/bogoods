@@ -16,9 +16,11 @@ import com.example.bogoods.data.Pref
 import com.example.bogoods.model.StoreModel
 import com.example.bogoods.model.UserModel
 import com.example.bogoods.page.ListBarang
+import com.example.bogoods.page.ListRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
+import java.util.*
 
 class StoreAdapter : RecyclerView.Adapter<StoreAdapter.JointViewHolder> {
     lateinit var mCtx: Context
@@ -69,9 +71,28 @@ class StoreAdapter : RecyclerView.Adapter<StoreAdapter.JointViewHolder> {
                 }
             })
         holder.ll.setOnClickListener {
-            val intent = Intent(mCtx, ListBarang::class.java)
-            intent.putExtra("idstore", storeModel.idstore)
-            mCtx.startActivity(intent)
+            var dialog: android.app.AlertDialog
+            val alertDialog = android.app.AlertDialog.Builder(mCtx)
+            val view = LayoutInflater.from(mCtx).inflate(R.layout.popup_on_store, null)
+            val list = view.findViewById<ListView>(R.id.store_popup)
+            list.setOnItemClickListener { adapterView, view, i, l ->
+                when(i){
+                    0 -> {
+                        val intent = Intent(mCtx, ListBarang::class.java)
+                        intent.putExtra("idstore", storeModel.idstore)
+                        mCtx.startActivity(intent)
+                    }
+                    1 -> {
+                        val intent = Intent(mCtx, ListRequest::class.java)
+                        intent.putExtra("idstore", storeModel.idstore)
+                        mCtx.startActivity(intent)
+                    }
+                }
+            }
+            alertDialog.setView(view)
+            alertDialog.setTitle(storeModel.storename)
+            dialog = alertDialog.create()
+            dialog.show()
         }
     }
 

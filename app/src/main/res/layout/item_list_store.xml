@@ -12,7 +12,7 @@
                android:id="@+id/imagestore"
                android:background="@drawable/round"
                android:src="@drawable/ic_seller"
-               android:layout_margin="10dp"
+               android:layout_margin="5dp"
                android:layout_height="50dp"/>
 
     <LinearLayout
@@ -23,19 +23,19 @@
         <TextView android:layout_width="wrap_content"
                   android:text=""
                   android:id="@+id/tv_nama_store"
-                  android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                   android:layout_height="wrap_content"/>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_marginTop="5dp"
                       android:layout_height="wrap_content">
             <TextView android:layout_width="0dp"
                       android:layout_weight="2"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text="Pemilik"
                       android:layout_height="wrap_content"/>
             <TextView android:layout_width="0dp"
                       android:layout_weight="3"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text=""
                       android:id="@+id/tv_pemilik_store"
                       android:textColor="@android:color/black"
@@ -46,12 +46,12 @@
                       android:layout_height="wrap_content">
             <TextView android:layout_width="0dp"
                       android:layout_weight="2"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text="Address"
                       android:layout_height="wrap_content"/>
             <TextView android:layout_width="0dp"
                       android:layout_weight="3"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text=""
                       android:id="@+id/tv_address"
                       android:textColor="@android:color/black"

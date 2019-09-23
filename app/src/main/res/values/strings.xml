@@ -8,7 +8,11 @@
         <item>Laki-Laki</item>
         <item>Perempuan</item>
     </string-array>
-    <string name="title_activity_dashboard_seller">Dashboard BoGoods</string>
+    <string-array name="store">
+        <item>List Barang</item>
+        <item>List Reseller</item>
+    </string-array>
+    <string name="title_activity_dashboard_seller">BoGoods</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
