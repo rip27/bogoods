@@ -50,6 +50,7 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
         fauth = FirebaseAuth.getInstance()
         holder.namabarang.text = lbModel.namabarang
         holder.harga.text = lbModel.harga
+        holder.stok.text = lbModel.stok
         Glide.with(mCtx).load(lbModel.imagebarang)
             .centerCrop()
             .error(R.drawable.ic_seller)
@@ -61,7 +62,7 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
         var ll: LinearLayout
         var namabarang: TextView
         var harga: TextView
-        var slot: TextView
+        var stok: TextView
         var imagelb: ImageView
 
         init {
@@ -69,7 +70,7 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
             namabarang = itemView.findViewById(R.id.tv_nama_barang)
             imagelb = itemView.findViewById(R.id.imagelistbarang)
             harga = itemView.findViewById(R.id.tv_harga_barang)
-            slot = itemView.findViewById(R.id.tv_slot)
+            stok = itemView.findViewById(R.id.tv_slot)
         }
     }
 }

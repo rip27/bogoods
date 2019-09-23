@@ -12,15 +12,25 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".page.ListBarang" android:parentActivityName=".page.Store">
-
-        </activity>
+        <activity android:name=".page.AcceptRequest" android:parentActivityName=".page.Dashboard"></activity>
+        <activity
+                android:name=".page.ReqConStore"
+                android:parentActivityName=".page.AddOrder" />
+        <activity
+                android:name=".page.AddOrder"
+                android:parentActivityName=".page.YourOrder" />
+        <activity
+                android:name=".page.YourOrder"
+                android:parentActivityName=".page.Dashboard" />
+        <activity
+                android:name=".page.ListBarang"
+                android:parentActivityName=".page.MyStore" />
         <activity
                 android:name=".page.FillData"
                 android:parentActivityName=".page.ChooseAs" />
         <activity android:name=".page.Login" />
         <activity
-                android:name=".page.Store"
+                android:name=".page.MyStore"
                 android:parentActivityName=".page.Dashboard" />
         <activity
                 android:name=".page.EditProfile"

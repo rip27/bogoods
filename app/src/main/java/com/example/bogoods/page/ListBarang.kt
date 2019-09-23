@@ -31,6 +31,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.add_barang.*
 import kotlinx.android.synthetic.main.fill_data.*
 import kotlinx.android.synthetic.main.list_barang.*
 import kotlinx.android.synthetic.main.store.*
@@ -133,7 +134,7 @@ class ListBarang : AppCompatActivity() {
                 when {
                     (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) -> {
                         if (ContextCompat.checkSelfPermission(
-                                this,
+                                applicationContext,
                                 Manifest.permission.READ_EXTERNAL_STORAGE
                             )
                             != PackageManager.PERMISSION_GRANTED
@@ -230,7 +231,7 @@ class ListBarang : AppCompatActivity() {
                         this.contentResolver, filePathImage
                     )
                     Glide.with(this).load(bitmap)
-                        .centerCrop().into(photo_profile_fd)
+                        .centerCrop().into(image_barang)
                 } catch (x: IOException) {
                     x.printStackTrace()
                 }

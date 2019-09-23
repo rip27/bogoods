@@ -1,27 +1,13 @@
 package com.example.bogoods.page
 
-import android.Manifest
-import android.app.Activity
-import android.app.AlertDialog
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.webkit.MimeTypeMap
-import android.widget.*
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.bogoods.R
 import com.example.bogoods.adapter.StoreAdapter
 import com.example.bogoods.data.Pref
@@ -30,13 +16,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.add_store.*
-import kotlinx.android.synthetic.main.profile.*
 import kotlinx.android.synthetic.main.store.*
-import java.io.IOException
-import java.util.*
+import kotlinx.android.synthetic.main.your_order.*
+import java.util.ArrayList
 
-class Store : AppCompatActivity() {
+class YourOrder : AppCompatActivity() {
+
 
     lateinit var dbRef: DatabaseReference
     lateinit var fAuth: FirebaseAuth
@@ -51,10 +36,11 @@ class Store : AppCompatActivity() {
     private var recyclerView: RecyclerView? = null
     private var list: MutableList<StoreModel> = ArrayList()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.store)
-        setSupportActionBar(toolbar_store)
+        setContentView(R.layout.your_order)
+        setSupportActionBar(toolbar_your_order)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         fAuth = FirebaseAuth.getInstance()
@@ -73,17 +59,14 @@ class Store : AppCompatActivity() {
                         val job = p0.value.toString()
                         if (job == "reseller") {
                             add_store.setOnClickListener {
-                                Toast.makeText(this@Store, "ANDA BUKAN SELLER", Toast.LENGTH_SHORT)
+                                Toast.makeText(this@YourOrder, "ANDA BUKAN SELLER", Toast.LENGTH_SHORT)
                                     .show()
                             }
                             tv_warning.visibility = View.VISIBLE
 
                         } else {
-                            add_store.setOnClickListener {
-                                showDialogAddStore()
-                            }
 
-                            init()
+//                            init()
 
 
                         }
@@ -95,7 +78,7 @@ class Store : AppCompatActivity() {
     }
 
     private fun init() {
-        var linearLayoutManager = LinearLayoutManager(this@Store)
+        var linearLayoutManager = LinearLayoutManager(this@YourOrder)
         recyclerView = findViewById(R.id.rc_store)
         recyclerView!!.layoutManager = linearLayoutManager
         recyclerView!!.setHasFixedSize(true)
@@ -116,7 +99,7 @@ class Store : AppCompatActivity() {
                         if (addDataAll.idpemilik.toString() == fAuth.currentUser?.uid) {
                             list.add(addDataAll)
                         }
-                        storeAdapter = StoreAdapter(this@Store, list)
+                        storeAdapter = StoreAdapter(this@YourOrder, list)
                         recyclerView!!.adapter = storeAdapter
                     }
                 }
@@ -127,44 +110,5 @@ class Store : AppCompatActivity() {
                     )
                 }
             })
-    }
-
-    private fun showDialogAddStore() {
-        var dialog: AlertDialog
-        val alertDialog = AlertDialog.Builder(this)
-        val view = LayoutInflater.from(this).inflate(R.layout.add_store, null)
-        alertDialog.setView(view)
-        alertDialog.setTitle("DAFTAR")
-        alertDialog.setPositiveButton("DAFTAR") { dialog, i ->
-            val stname = view.findViewById<EditText>(R.id.et_storename).text.toString()
-            val address = view.findViewById<EditText>(R.id.et_address).text.toString()
-            if (stname.isEmpty() || address.isEmpty()) {
-                Toast.makeText(this, "Fill All Data", Toast.LENGTH_SHORT).show()
-            } else {
-                addStore(stname, address)
-            }
-        }
-        alertDialog.setNegativeButton("NO") { dialog, i ->
-            dialog.dismiss()
-        }
-        dialog = alertDialog.create()
-        dialog.show()
-    }
-
-    private fun addStore(stname: String, address: String) {
-        val nameXXX = UUID.randomUUID().toString()
-        val idstore = UUID.randomUUID().toString()
-        val uid = fAuth.currentUser?.uid
-        dbRef = FirebaseDatabase.getInstance().getReference("store/$idstore")
-        dbRef.child("idstore").setValue(idstore)
-        dbRef.child("storename").setValue(stname)
-        dbRef.child("address").setValue(address)
-        dbRef.child("status").setValue("n")
-        dbRef.child("idpemilik").setValue(uid)
-        Toast.makeText(
-            this,
-            "Sukses Daftar Toko Mohon Tunggu Konfirmasi dari Admin",
-            Toast.LENGTH_SHORT
-        ).show()
     }
 }

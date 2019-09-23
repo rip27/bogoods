@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".page.AddOrder">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            app:title="Select Your Connection Store"
+            android:id="@+id/toolbar_add_order"
+            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"/>
+
+    <View
+            android:background="#33f"
+            android:layout_below="@+id/toolbar_add_order"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+
+    <TextView
+            android:text="You Don't Have a Connection Store"
+            android:visibility="gone"
+            android:textColor="#33f"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_con_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginHorizontal="5dp"
+            android:layout_width="match_parent"
+            android:id="@+id/rc_cstore"
+            android:layout_below="@+id/toolbar_add_order"
+            android:layout_marginTop="20dp"
+            android:layout_height="match_parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_add_white"
+            android:backgroundTint="#33f"
+            android:id="@+id/add_connection_store"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".page.AcceptRequest">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_acc_req"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:title="Accept Request" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/toolbar_acc_req"
+            android:background="#33F" />
+
+    <TextView
+            android:layout_below="@+id/toolbar_acc_req"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textgatau"
+            android:text="List Store"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_acc_req"
+            android:layout_below="@+id/textgatau"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp" />
+
+</RelativeLayout>

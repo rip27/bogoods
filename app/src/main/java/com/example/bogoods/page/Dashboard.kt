@@ -2,8 +2,6 @@ package com.example.bogoods.page
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.MenuItem
@@ -12,6 +10,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
 import com.bumptech.glide.Glide
 import com.example.bogoods.R
 import com.example.bogoods.data.Pref
@@ -77,7 +76,15 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             .child("job").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    tv_job_on_dashboard.text = p0.value.toString()
+                    val jbb = p0.value.toString()
+                    tv_job_on_dashboard.text = jbb
+                    welcomejob.text = jbb
+                    if (jbb == "seller"){
+                        add_order_dashboard.visibility = View.GONE
+                        add_connection_store_dashboard.visibility = View.GONE
+                        accept_order_dashboard.visibility = View.VISIBLE
+                        accept_req_connection_store_dashboard.visibility = View.VISIBLE
+                    }
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -98,6 +105,27 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
 
         navView.setNavigationItemSelectedListener(this)
+
+        goto_profile.setOnClickListener {
+            startActivity(Intent(this@Dashboard, Profile::class.java))
+        }
+
+        add_order_dashboard.setOnClickListener {
+            startActivity(Intent(this@Dashboard, AddOrder::class.java))
+        }
+
+        accept_req_connection_store_dashboard.setOnClickListener {
+            
+        }
+
+        accept_order_dashboard.setOnClickListener {
+
+        }
+
+        add_connection_store_dashboard.setOnClickListener {
+            startActivity(Intent(this@Dashboard, ReqConStore::class.java))
+        }
+
     }
 
     override fun onBackPressed() {
@@ -128,20 +156,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val jb = intent.getStringExtra("job")
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
-            .child("job").addListenerForSingleValueEvent(object : ValueEventListener{
-                override fun onCancelled(p0: DatabaseError) {
-
-                }
-
-                override fun onDataChange(p0: DataSnapshot) {
-                    val jobo = p0.value.toString()
-                    if (jobo == "reseller"){
-
-                    }
-                }
-
-            })
         when (item.itemId) {
             R.id.nav_profile -> {
                 val intent = Intent(this@Dashboard, Profile::class.java)
@@ -149,12 +163,14 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                 startActivity(intent)
             }
             R.id.nav_store -> {
-                val intent = Intent(this@Dashboard, Store::class.java)
+                val intent = Intent(this@Dashboard, MyStore::class.java)
                 intent.putExtra("job", jb)
                 startActivity(intent)
             }
-            R.id.nav_slideshow -> {
-
+            R.id.nav_your_order -> {
+                val intent = Intent(this@Dashboard, YourOrder::class.java)
+                intent.putExtra("job", jb)
+                startActivity(intent)
             }
             R.id.nav_tools -> {
 

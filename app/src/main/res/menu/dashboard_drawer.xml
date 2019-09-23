@@ -12,9 +12,9 @@
                 android:icon="@drawable/ic_store_black"
                 android:title="@string/menu_store"/>
         <item
-                android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_slideshow"/>
+                android:id="@+id/nav_your_order"
+                android:icon="@drawable/ic_shopping_cart_black"
+                android:title="@string/menu_your_order"/>
         <item
                 android:id="@+id/nav_tools"
                 android:icon="@drawable/ic_menu_manage"

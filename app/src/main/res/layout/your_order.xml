@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".page.YourOrder">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_your_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:title="Your Order" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/toolbar_your_order"
+            android:background="#33f" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_your_order"
+            android:layout_marginHorizontal="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_your_order"
+            android:layout_marginTop="20dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#33f"
+            android:id="@+id/add_order"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_add_white"
+            />
+
+</RelativeLayout>
