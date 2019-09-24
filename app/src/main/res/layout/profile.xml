@@ -96,7 +96,7 @@
     <View android:layout_width="match_parent"
           android:layout_marginTop="20dp"
           android:id="@+id/v"
-          android:layout_below="@+id/content_gender_on_profile"
+          android:layout_below="@+id/foto_profile"
           android:background="@android:color/transparent"
           android:layout_height="1dp"/>
 

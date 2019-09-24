@@ -69,6 +69,22 @@ class ConStoreAdapter : RecyclerView.Adapter<ConStoreAdapter.ConstoreViewHolder>
                     Log.e("cok", holder.message)
                 }
             })
+        val ref2 = FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection/")
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(p0: DataSnapshot) {
+                    if (!p0.hasChildren()) {
+                        holder.sdr.visibility = View.GONE
+                        holder.req.visibility = View.VISIBLE
+                    } else {
+                        holder.req.visibility = View.GONE
+                        holder.sdr.visibility = View.VISIBLE
+                    }
+                }
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+            })
         holder.req.setOnClickListener {
             var dialog: android.app.AlertDialog
             val alertDialog = android.app.AlertDialog.Builder(mCtx)
@@ -77,6 +93,7 @@ class ConStoreAdapter : RecyclerView.Adapter<ConStoreAdapter.ConstoreViewHolder>
                 val idreq = UUID.randomUUID().toString()
                 dbRef = FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection/$idreq")
                 dbRef.child("iduserrequest").setValue(fauth.currentUser?.uid)
+                dbRef.child("idstore").setValue(storeModel.idstore)
                 dbRef.child("idreq").setValue(idreq)
                 dbRef.child("status").setValue("request")
                 Toast.makeText(
@@ -95,6 +112,7 @@ class ConStoreAdapter : RecyclerView.Adapter<ConStoreAdapter.ConstoreViewHolder>
 
     inner class ConstoreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var ll: LinearLayout
+        var sdr: LinearLayout
         var namastore: TextView
         var pemilik: TextView
         var address: TextView
@@ -108,6 +126,7 @@ class ConStoreAdapter : RecyclerView.Adapter<ConStoreAdapter.ConstoreViewHolder>
             pemilik = itemView.findViewById(R.id.tv_pemilik_store_req)
             address = itemView.findViewById(R.id.tv_address_req)
             req = itemView.findViewById(R.id.req_store)
+            sdr = itemView.findViewById(R.id.sudah_req)
         }
     }
 }

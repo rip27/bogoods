@@ -11,6 +11,7 @@
     <string-array name="store">
         <item>List Barang</item>
         <item>List Reseller</item>
+        <item>Edit Store</item>
     </string-array>
     <string name="title_activity_dashboard_seller">BoGoods</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

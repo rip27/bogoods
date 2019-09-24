@@ -103,6 +103,7 @@ class ListRequestAdapter : RecyclerView.Adapter<ListRequestAdapter.lrViewHolder>
                 .child("/${listRequestModel.idstore}")
                 .child("/requestconnection")
                 .child("/${listRequestModel.idreq}/status").setValue("accept")
+            Toast.makeText(mCtx, "Text Acc", Toast.LENGTH_SHORT).show()
         }
         holder.rj.setOnClickListener {
             dbRef = FirebaseDatabase.getInstance().reference
@@ -110,6 +111,7 @@ class ListRequestAdapter : RecyclerView.Adapter<ListRequestAdapter.lrViewHolder>
                 .child("/${listRequestModel.idstore}")
                 .child("/requestconnection")
                 .child("/${listRequestModel.idreq}/status").setValue("reject")
+            Toast.makeText(mCtx, "Text Rej", Toast.LENGTH_SHORT).show()
         }
     }
 

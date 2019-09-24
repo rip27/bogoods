@@ -72,6 +72,17 @@ class AccStoreAdapter : RecyclerView.Adapter<AccStoreAdapter.AccstoreViewHolder>
                     Log.e("cok", holder.message)
                 }
             })
+        FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection")
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(p0: DataSnapshot) {
+                    holder.count.text = p0.childrenCount.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+            })
         holder.ll.setOnClickListener {
             val intent = Intent(mCtx, ListRequest::class.java)
             intent.putExtra("idstore", storeModel.idstore)

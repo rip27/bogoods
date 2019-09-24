@@ -1,75 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_margin="10dp"
-              android:padding="10dp"
-              android:background="@drawable/round"
               android:id="@+id/ll_req_store"
-              android:layout_height="wrap_content">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="10dp"
+              android:background="@drawable/round"
+              android:orientation="horizontal"
+              android:padding="10dp">
 
-    <ImageView android:layout_width="50dp"
-               android:id="@+id/image_req_store"
-               android:background="@drawable/round"
-               android:src="@drawable/ic_seller"
+    <ImageView android:id="@+id/image_req_store"
+               android:layout_width="50dp"
+               android:layout_height="50dp"
                android:layout_margin="5dp"
-               android:layout_height="50dp"/>
+               android:background="@drawable/round"
+               android:src="@drawable/ic_seller"/>
 
     <LinearLayout
-            android:layout_marginStart="10dp"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
 
-            <TextView android:layout_width="match_parent"
-                    android:text=""
-                    android:id="@+id/tv_nama_store_req"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/tv_nama_store_req"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text=""
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
         <LinearLayout android:layout_width="match_parent"
-                      android:layout_marginTop="5dp"
-                      android:layout_height="wrap_content">
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="5dp">
             <TextView android:layout_width="0dp"
+                      android:layout_height="wrap_content"
                       android:layout_weight="2"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text="Pemilik"
-                      android:layout_height="wrap_content"/>
-            <TextView android:layout_width="0dp"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            <TextView android:id="@+id/tv_pemilik_store_req"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
                       android:layout_weight="3"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text=""
-                      android:id="@+id/tv_pemilik_store_req"
-                      android:textColor="@android:color/black"
-                      android:layout_height="wrap_content"/>
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:textColor="@android:color/black"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
-                      android:layout_marginTop="5dp"
-                      android:layout_height="wrap_content">
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="5dp">
             <TextView android:layout_width="0dp"
+                      android:layout_height="wrap_content"
                       android:layout_weight="2"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text="Address"
-                      android:layout_height="wrap_content"/>
-            <TextView android:layout_width="0dp"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            <TextView android:id="@+id/tv_address_req"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
                       android:layout_weight="3"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text=""
-                      android:id="@+id/tv_address_req"
-                      android:textColor="@android:color/black"
-                      android:layout_height="wrap_content"/>
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:textColor="@android:color/black"/>
         </LinearLayout>
         <TextView
-                android:layout_marginTop="5dp"
                 android:id="@+id/req_store"
-                android:text="Request Connection"
-                android:textAlignment="center"
-                android:padding="5dp"
-                android:background="@drawable/shape_et_auth"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape_et_auth"
+                android:padding="5dp"
+                android:text="Request Connection"
+                android:textAlignment="center"/>
+        <LinearLayout android:id="@+id/sudah_req"
+                      android:layout_marginTop="5dp"
+                      android:visibility="gone"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/shape_et_auth">
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#f33"
+                    android:padding="5dp"
+                    android:text="Already Request"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"/>
+        </LinearLayout>
     </LinearLayout>
-
 
 
 </LinearLayout>

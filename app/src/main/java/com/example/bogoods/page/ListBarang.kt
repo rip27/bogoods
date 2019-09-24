@@ -18,6 +18,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -67,7 +68,7 @@ class ListBarang : AppCompatActivity() {
 
                 override fun onDataChange(p0: DataSnapshot) {
                     val names = p0.value.toString()
-                    supportActionBar!!.title = names
+                    supportActionBar!!.title = "List Barang toko " + names
                 }
 
             })
@@ -89,7 +90,7 @@ class ListBarang : AppCompatActivity() {
     private fun showData() {
         var linearLayoutManager = LinearLayoutManager(this@ListBarang)
         recyclerView = findViewById(R.id.rc_barang)
-        recyclerView!!.layoutManager = linearLayoutManager
+        recyclerView!!.layoutManager = GridLayoutManager(this, 2)
         recyclerView!!.setHasFixedSize(true)
 
         val idstore = intent.getStringExtra("idstore")
