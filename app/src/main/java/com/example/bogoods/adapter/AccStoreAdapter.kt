@@ -73,6 +73,7 @@ class AccStoreAdapter : RecyclerView.Adapter<AccStoreAdapter.AccstoreViewHolder>
                 }
             })
         FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection")
+            .orderByChild("status").equalTo("request")
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(p0: DataSnapshot) {
                     holder.count.text = p0.childrenCount.toString()

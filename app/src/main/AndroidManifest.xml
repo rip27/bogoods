@@ -12,7 +12,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".page.ListRequest" android:parentActivityName=".page.AcceptRequest">
+        <activity android:name=".page.EditBarang" android:parentActivityName=".page.ListBarang">
+        </activity>
+        <activity
+                android:name=".page.EditStore"
+                android:parentActivityName=".page.MyStore">
+        </activity>
+        <activity
+                android:name=".page.ListRequest"
+                android:parentActivityName=".page.AcceptRequest">
         </activity>
         <activity
                 android:name=".page.AcceptRequest"

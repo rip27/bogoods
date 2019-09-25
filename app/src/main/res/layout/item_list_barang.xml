@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/ll_list"
+              android:id="@+id/ll_list_barang"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_margin="10dp"
@@ -8,14 +8,28 @@
               android:orientation="vertical"
               android:padding="10dp">
 
-    <ImageView
-            android:layout_gravity="center"
-            android:id="@+id/imagelistbarang"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/round"
-            android:src="@drawable/bogoods_with_gradient"/>
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_below="@+id/ic_edit_barang"
+                android:id="@+id/imagelistbarang"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/round"
+                android:src="@drawable/bogoods_with_gradient"/>
+
+        <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:id="@+id/ic_edit_barang"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_edit_black"/>
+
+    </RelativeLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -49,8 +63,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:text=""
-                    android:textSize="12sp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,8 +84,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:text=""
-                    android:textSize="12sp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"/>
         </LinearLayout>
     </LinearLayout>
 

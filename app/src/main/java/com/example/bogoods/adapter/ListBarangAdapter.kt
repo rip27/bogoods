@@ -16,6 +16,8 @@ import com.example.bogoods.data.Pref
 import com.example.bogoods.model.ListBarangModel
 import com.example.bogoods.model.StoreModel
 import com.example.bogoods.model.UserModel
+import com.example.bogoods.page.EditBarang
+import com.example.bogoods.page.EditStore
 import com.example.bogoods.page.ListBarang
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -55,7 +57,12 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
             .centerCrop()
             .error(R.drawable.ic_seller)
             .into(holder.imagelb)
-
+        holder.ic_ed.setOnClickListener {
+            val intent = Intent(mCtx, EditBarang::class.java)
+            intent.putExtra("idstore", lbModel.idstore)
+            intent.putExtra("idbarang", lbModel.idbarang)
+            mCtx.startActivity(intent)
+        }
     }
 
     inner class ListBarangViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -64,11 +71,13 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
         var harga: TextView
         var stok: TextView
         var imagelb: ImageView
+        var ic_ed: ImageView
 
         init {
-            ll = itemView.findViewById(R.id.ll_list)
+            ll = itemView.findViewById(R.id.ll_list_barang)
             namabarang = itemView.findViewById(R.id.tv_nama_barang)
             imagelb = itemView.findViewById(R.id.imagelistbarang)
+            ic_ed = itemView.findViewById(R.id.ic_edit_barang)
             harga = itemView.findViewById(R.id.tv_harga_barang)
             stok = itemView.findViewById(R.id.tv_slot)
         }

@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.example.bogoods.data.Pref
 import com.example.bogoods.model.StoreModel
 import com.example.bogoods.model.UserModel
+import com.example.bogoods.page.EditStore
 import com.example.bogoods.page.ListBarang
 import com.example.bogoods.page.ListRequest
 import com.google.firebase.auth.FirebaseAuth
@@ -87,6 +88,11 @@ class StoreAdapter : RecyclerView.Adapter<StoreAdapter.JointViewHolder> {
                         intent.putExtra("idstore", storeModel.idstore)
                         mCtx.startActivity(intent)
                     }
+                    2 -> {
+                    val intent = Intent(mCtx, EditStore::class.java)
+                    intent.putExtra("idstore", storeModel.idstore)
+                    mCtx.startActivity(intent)
+                }
                 }
             }
             alertDialog.setView(view)

@@ -53,6 +53,7 @@ class ListBarang : AppCompatActivity() {
     private var recyclerView: RecyclerView? = null
     private var list: MutableList<ListBarangModel> = ArrayList()
     private var listBarangAdapter: ListBarangAdapter? = null
+    lateinit var img : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +69,7 @@ class ListBarang : AppCompatActivity() {
 
                 override fun onDataChange(p0: DataSnapshot) {
                     val names = p0.value.toString()
-                    supportActionBar!!.title = "List Barang toko " + names
+                    supportActionBar!!.title = "List Barang Toko " + names
                 }
 
             })
@@ -125,35 +126,35 @@ class ListBarang : AppCompatActivity() {
         val alertDialog = AlertDialog.Builder(this)
         val view = LayoutInflater.from(this).inflate(R.layout.add_barang, null)
         alertDialog.setView(view)
-        alertDialog.setTitle("DAFTAR")
-        alertDialog.setPositiveButton("DAFTAR") { dialog, i ->
-            val namabarang = view.findViewById<EditText>(R.id.et_nama_barang).text.toString()
-            val harga = view.findViewById<EditText>(R.id.et_harga).text.toString()
-            val stok = view.findViewById<EditText>(R.id.et_stok).text.toString()
-            val img = view.findViewById<ImageView>(R.id.image_barang)
-            img.setOnClickListener {
-                when {
-                    (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) -> {
-                        if (ContextCompat.checkSelfPermission(
-                                applicationContext,
+        alertDialog.setTitle("TAMBAH BARANG")
+        img = view.findViewById<ImageView>(R.id.image_barang)
+        img.setOnClickListener {
+            when {
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) -> {
+                    if (ContextCompat.checkSelfPermission(
+                            applicationContext,
+                            Manifest.permission.READ_EXTERNAL_STORAGE
+                        )
+                        != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        requestPermissions(
+                            arrayOf(
                                 Manifest.permission.READ_EXTERNAL_STORAGE
-                            )
-                            != PackageManager.PERMISSION_GRANTED
-                        ) {
-                            requestPermissions(
-                                arrayOf(
-                                    Manifest.permission.READ_EXTERNAL_STORAGE
-                                ), PERMISSION_RC
-                            )
-                        } else {
-                            imageChooser()
-                        }
-                    }
-                    else -> {
+                            ), PERMISSION_RC
+                        )
+                    } else {
                         imageChooser()
                     }
                 }
+                else -> {
+                    imageChooser()
+                }
             }
+        }
+        alertDialog.setPositiveButton("TAMBAH") { dialog, i ->
+            val namabarang = view.findViewById<EditText>(R.id.et_nama_barang).text.toString()
+            val harga = view.findViewById<EditText>(R.id.et_harga).text.toString()
+            val stok = view.findViewById<EditText>(R.id.et_stok).text.toString()
             if (namabarang.isEmpty() || harga.isEmpty() || stok.isEmpty()) {
                 Toast.makeText(this, "Fill All Data", Toast.LENGTH_SHORT).show()
             } else {
@@ -232,7 +233,7 @@ class ListBarang : AppCompatActivity() {
                         this.contentResolver, filePathImage
                     )
                     Glide.with(this).load(bitmap)
-                        .centerCrop().into(image_barang)
+                        .centerCrop().into(img)
                 } catch (x: IOException) {
                     x.printStackTrace()
                 }

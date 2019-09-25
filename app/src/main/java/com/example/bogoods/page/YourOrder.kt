@@ -48,33 +48,6 @@ class YourOrder : AppCompatActivity() {
 
         val uid = fAuth.currentUser?.uid
 
-        FirebaseDatabase.getInstance().getReference("user/$uid")
-            .child("job").addListenerForSingleValueEvent(
-                object : ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-
-                    }
-
-                    override fun onDataChange(p0: DataSnapshot) {
-                        val job = p0.value.toString()
-                        if (job == "reseller") {
-                            add_store.setOnClickListener {
-                                Toast.makeText(this@YourOrder, "ANDA BUKAN SELLER", Toast.LENGTH_SHORT)
-                                    .show()
-                            }
-                            tv_warning.visibility = View.VISIBLE
-
-                        } else {
-
-//                            init()
-
-
-                        }
-
-                    }
-
-                }
-            )
     }
 
     private fun init() {
