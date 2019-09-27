@@ -17,134 +17,174 @@
           android:layout_height="2dp"
           android:layout_below="@+id/toolbar_edit_barang"
           android:background="#33f"/>
-
-    <LinearLayout
-            android:id="@+id/content_storename"
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar_edit_barang"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/blue_gradient_round"
-            android:orientation="vertical">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Nama Barang"
-                android:textColor="@android:color/white"/>
+            android:layout_marginTop="20dp">
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-        <EditText
-                android:id="@+id/et_nama_barang_edit"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/shape_et_auth"
-                android:hint="Nama Barang"
-                android:inputType="text"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColorHint="#666"/>
-    </LinearLayout>
-    <LinearLayout
-            android:id="@+id/content_storeaddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/content_storename"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/blue_gradient_round"
-            android:orientation="vertical">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Harga ( Rupiah )"
-                android:textColor="@android:color/white"/>
 
-        <EditText
-                android:id="@+id/et_harga_barang_edit"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/shape_et_auth"
-                android:hint="Harga"
-                android:inputType="number"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColorHint="#666"/>
-    </LinearLayout>
-    <LinearLayout
-            android:id="@+id/content_stok"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/content_storeaddress"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/blue_gradient_round"
-            android:orientation="vertical">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Stok"
-                android:textColor="@android:color/white"/>
+            <LinearLayout android:id="@+id/content_image_barang"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_centerHorizontal="true"
+                          android:layout_marginTop="20dp"
+                          android:background="@drawable/round"
+                          android:orientation="vertical">
 
-        <EditText
-                android:id="@+id/et_stok_barang_edit"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="2dp"
-                android:background="@drawable/shape_et_auth"
-                android:hint="Stok"
-                android:inputType="number"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColorHint="#666"/>
-    </LinearLayout>
+                <ImageView android:id="@+id/image_barang_edit"
+                           android:layout_width="120dp"
+                           android:layout_height="120dp"
+                           android:layout_margin="5dp"
+                           android:src="@drawable/ic_store_black"/>
+                <LinearLayout android:id="@+id/bt_set_image_barang"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_below="@+id/content_image_barang"
+                              android:layout_centerHorizontal="true"
+                              android:layout_marginTop="5dp"
+                              android:background="#99f">
 
-    <LinearLayout android:id="@+id/content_image_barang"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_below="@+id/content_stok"
-                  android:layout_centerHorizontal="true"
-                  android:layout_marginTop="20dp"
-                  android:background="@drawable/round">
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_margin="5dp"
+                              android:text="Set Gambar Barang"
+                              android:textColor="@android:color/white"/>
 
-        <ImageView android:id="@+id/image_barang_edit"
-                   android:layout_width="150dp"
-                   android:layout_height="150dp"
-                   android:layout_margin="5dp"
-                   android:src="@drawable/ic_store_black"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:id="@+id/content_storename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/content_image_barang"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/blue_gradient_round"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Nama Barang"
+                        android:textColor="@android:color/white"/>
 
-    </LinearLayout>
+                <EditText
+                        android:id="@+id/et_nama_barang_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_auth"
+                        android:hint="Nama Barang"
+                        android:inputType="text"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColorHint="#666"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:id="@+id/content_storeaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/content_storename"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/blue_gradient_round"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Harga ( Rupiah )"
+                        android:textColor="@android:color/white"/>
 
-    <LinearLayout android:id="@+id/bt_set_image_barang"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_below="@+id/content_image_barang"
-                  android:layout_centerHorizontal="true"
-                  android:layout_marginTop="5dp"
-                  android:background="#99f">
+                <EditText
+                        android:id="@+id/et_harga_barang_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_auth"
+                        android:hint="Harga"
+                        android:inputType="number"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColorHint="#666"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:id="@+id/content_stok"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/content_storeaddress"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/blue_gradient_round"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Stok"
+                        android:textColor="@android:color/white"/>
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_margin="5dp"
-                  android:text="Set Gambar Barang"
-                  android:textColor="@android:color/white"/>
+                <EditText
+                        android:id="@+id/et_stok_barang_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_auth"
+                        android:hint="Stok"
+                        android:inputType="number"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColorHint="#666"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:id="@+id/content_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/content_stok"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/blue_gradient_round"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Desc"
+                        android:textColor="@android:color/white"/>
 
-    </LinearLayout>
-    <Button android:id="@+id/bt_save_edit_barang"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/button_green_rounded_5dp"
-            android:text="Save"
-            android:textColor="@android:color/white"/>
+                <EditText
+                        android:id="@+id/et_desc_barang_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_auth"
+                        android:hint="Desc"
+                        android:inputType="textMultiLine"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColorHint="#666"/>
+            </LinearLayout>
+
+
+            <Button android:id="@+id/bt_save_edit_barang"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/content_desc"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/button_green_rounded_5dp"
+                    android:text="Save"
+                    android:textColor="@android:color/white"/>
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -85,6 +85,19 @@ class EditBarang : AppCompatActivity() {
                 }
             )
         FirebaseDatabase.getInstance().getReference("store/$idstore/listbarang/$idbarang")
+            .child("desc").addListenerForSingleValueEvent(
+                object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        et_desc_barang_edit.setText(p0.value.toString())
+                    }
+
+                }
+            )
+        FirebaseDatabase.getInstance().getReference("store/$idstore/listbarang/$idbarang")
             .child("harga").addListenerForSingleValueEvent(
                 object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
@@ -187,6 +200,7 @@ class EditBarang : AppCompatActivity() {
         val nb = et_nama_barang_edit.text.toString()
         val hg = et_harga_barang_edit.text.toString()
         val st = et_stok_barang_edit.text.toString()
+        val ds = et_desc_barang_edit.text.toString()
         try {
             val storageRef: StorageReference = storageReference
                 .child("$uidUser/profile/${pref.getUIDD()}.${GetFileExtension(filePathImage)}")
@@ -206,6 +220,7 @@ class EditBarang : AppCompatActivity() {
         dbRef.child("store/$idstore/listbarang/$idbarang/namabarang").setValue(nb)
         dbRef.child("store/$idstore/listbarang/$idbarang/harga").setValue(hg)
         dbRef.child("store/$idstore/listbarang/$idbarang/stok").setValue(st)
+        dbRef.child("store/$idstore/listbarang/$idbarang/desc").setValue(ds)
         Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
         Handler().postDelayed({
             onBackPressed()

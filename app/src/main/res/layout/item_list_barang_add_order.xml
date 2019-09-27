@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/ll_list_barang"
+              android:id="@+id/ll_list_barang_add_order"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_margin="10dp"
@@ -12,32 +12,13 @@
                     android:layout_height="wrap_content">
 
         <ImageView
-                android:layout_below="@+id/tv_nama_barang"
-                android:id="@+id/imagelistbarang"
+                android:id="@+id/imagelistbarang_add_order"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:background="@drawable/round"
                 android:src="@drawable/bogoods_with_gradient"/>
-
-        <TextView
-                android:layout_marginStart="10dp"
-                android:id="@+id/tv_nama_barang"
-                android:layout_toStartOf="@+id/ic_edit_barang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cok"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"/>
-
-        <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:id="@+id/ic_edit_barang"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="5dp"
-                android:src="@drawable/ic_edit_black"/>
 
     </RelativeLayout>
 
@@ -46,6 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tv_nama_barang_add_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cok"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"/>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +49,7 @@
                     android:textSize="12sp"/>
 
             <TextView
-                    android:id="@+id/tv_harga_barang"
+                    android:id="@+id/tv_harga_barang_add_order"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
@@ -81,7 +70,7 @@
                     android:textSize="12sp"/>
 
             <TextView
-                    android:id="@+id/tv_slot"
+                    android:id="@+id/tv_slot_add_order"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"

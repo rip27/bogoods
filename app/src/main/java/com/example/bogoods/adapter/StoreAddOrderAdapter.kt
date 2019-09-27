@@ -1,5 +1,6 @@
 package com.example.bogoods.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.media.Image
@@ -17,13 +18,14 @@ import com.example.bogoods.model.StoreModel
 import com.example.bogoods.model.UserModel
 import com.example.bogoods.page.EditStore
 import com.example.bogoods.page.ListBarang
+import com.example.bogoods.page.ListBarangAddOrder
 import com.example.bogoods.page.ListRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 
-class StoreAdapter : RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
+class StoreAddOrderAdapter : RecyclerView.Adapter<StoreAddOrderAdapter.StoreViewHolder> {
     lateinit var mCtx: Context
     lateinit var itemStore: List<StoreModel>
     lateinit var pref: Pref
@@ -38,7 +40,7 @@ class StoreAdapter : RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_list_store, parent, false)
+            .inflate(R.layout.item_list_store_on_add_order, parent, false)
         val jointViewHolder = StoreViewHolder(view)
         return jointViewHolder
     }
@@ -71,34 +73,35 @@ class StoreAdapter : RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
                     Log.e("cok", holder.message)
                 }
             })
+        FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/listbarang")
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                @SuppressLint("SetTextI18n")
+                override fun onDataChange(p0: DataSnapshot) {
+                    holder.count.text = p0.childrenCount.toString() + " Produk"
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+            })
+        FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection")
+            .orderByChild("status").equalTo("accept")
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                @SuppressLint("SetTextI18n")
+                override fun onDataChange(p0: DataSnapshot) {
+                    holder.countr.text = p0.childrenCount.toString() + " Orang"
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+            })
         holder.ll.setOnClickListener {
-            var dialog: android.app.AlertDialog
-            val alertDialog = android.app.AlertDialog.Builder(mCtx)
-            val view = LayoutInflater.from(mCtx).inflate(R.layout.popup_on_store, null)
-            val list = view.findViewById<ListView>(R.id.store_popup)
-            list.setOnItemClickListener { adapterView, view, i, l ->
-                when(i){
-                    0 -> {
-                        val intent = Intent(mCtx, ListBarang::class.java)
-                        intent.putExtra("idstore", storeModel.idstore)
-                        mCtx.startActivity(intent)
-                    }
-                    1 -> {
-                        val intent = Intent(mCtx, ListRequest::class.java)
-                        intent.putExtra("idstore", storeModel.idstore)
-                        mCtx.startActivity(intent)
-                    }
-                    2 -> {
-                    val intent = Intent(mCtx, EditStore::class.java)
-                    intent.putExtra("idstore", storeModel.idstore)
-                    mCtx.startActivity(intent)
-                }
-                }
-            }
-            alertDialog.setView(view)
-            alertDialog.setTitle(storeModel.storename)
-            dialog = alertDialog.create()
-            dialog.show()
+            val intent = Intent(mCtx, ListBarangAddOrder::class.java)
+            intent.putExtra("idstore", storeModel.idstore)
+            mCtx.startActivity(intent)
         }
     }
 
@@ -107,14 +110,18 @@ class StoreAdapter : RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
         var namastore: TextView
         var pemilik: TextView
         var address: TextView
+        var count: TextView
+        var countr: TextView
         var imagestore: ImageView
 
         init {
-            ll = itemView.findViewById(R.id.ll_store)
-            namastore = itemView.findViewById(R.id.tv_nama_store)
-            imagestore = itemView.findViewById(R.id.imagestore)
-            pemilik = itemView.findViewById(R.id.tv_pemilik_store)
-            address = itemView.findViewById(R.id.tv_address)
+            ll = itemView.findViewById(R.id.ll_store_on_add_order)
+            namastore = itemView.findViewById(R.id.tv_nama_store_on_add_order)
+            imagestore = itemView.findViewById(R.id.imagestore_on_add_order)
+            pemilik = itemView.findViewById(R.id.tv_pemilik_store_on_add_order)
+            address = itemView.findViewById(R.id.tv_address_on_add_order)
+            count = itemView.findViewById(R.id.count_produk)
+            countr = itemView.findViewById(R.id.count_reseller)
         }
     }
 }

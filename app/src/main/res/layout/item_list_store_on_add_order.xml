@@ -5,11 +5,11 @@
               android:layout_margin="10dp"
               android:padding="10dp"
               android:background="@drawable/round"
-              android:id="@+id/ll_store"
+              android:id="@+id/ll_store_on_add_order"
               android:layout_height="wrap_content">
 
     <ImageView android:layout_width="50dp"
-               android:id="@+id/imagestore"
+               android:id="@+id/imagestore_on_add_order"
                android:background="@drawable/round"
                android:src="@drawable/ic_seller"
                android:layout_margin="5dp"
@@ -22,10 +22,11 @@
                   android:layout_height="wrap_content">
         <TextView android:layout_width="wrap_content"
                   android:text=""
-                  android:id="@+id/tv_nama_store"
+                  android:id="@+id/tv_nama_store_on_add_order"
                   android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                   android:layout_height="wrap_content"/>
         <LinearLayout android:layout_width="match_parent"
+                      android:layout_marginTop="5dp"
                       android:layout_height="wrap_content">
             <TextView android:layout_width="0dp"
                       android:layout_weight="2"
@@ -36,7 +37,8 @@
                       android:layout_weight="3"
                       android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text=""
-                      android:id="@+id/tv_pemilik_store"
+                      android:textAlignment="textEnd"
+                      android:id="@+id/tv_pemilik_store_on_add_order"
                       android:textColor="@android:color/black"
                       android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -51,7 +53,40 @@
                       android:layout_weight="3"
                       android:textAppearance="@style/TextAppearance.AppCompat.Small"
                       android:text=""
-                      android:id="@+id/tv_address"
+                      android:textAlignment="textEnd"
+                      android:id="@+id/tv_address_on_add_order"
+                      android:textColor="@android:color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="2"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:text="Produk"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="3"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:text=""
+                      android:textAlignment="textEnd"
+                      android:id="@+id/count_produk"
+                      android:textColor="@android:color/black"
+                      android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="2"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:text="Reseller"
+                      android:layout_height="wrap_content"/>
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="3"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:text=""
+                      android:textAlignment="textEnd"
+                      android:id="@+id/count_reseller"
                       android:textColor="@android:color/black"
                       android:layout_height="wrap_content"/>
         </LinearLayout>

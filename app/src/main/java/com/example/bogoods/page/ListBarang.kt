@@ -155,10 +155,11 @@ class ListBarang : AppCompatActivity() {
             val namabarang = view.findViewById<EditText>(R.id.et_nama_barang).text.toString()
             val harga = view.findViewById<EditText>(R.id.et_harga).text.toString()
             val stok = view.findViewById<EditText>(R.id.et_stok).text.toString()
-            if (namabarang.isEmpty() || harga.isEmpty() || stok.isEmpty()) {
+            val desc = view.findViewById<EditText>(R.id.et_desc).text.toString()
+            if (namabarang.isEmpty() || harga.isEmpty() || stok.isEmpty()|| desc.isEmpty()) {
                 Toast.makeText(this, "Fill All Data", Toast.LENGTH_SHORT).show()
             } else {
-                addBarang(namabarang, harga, stok)
+                addBarang(namabarang, harga, stok, desc)
             }
         }
         alertDialog.setNegativeButton("NO") { dialog, i ->
@@ -168,7 +169,7 @@ class ListBarang : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun addBarang(namabarang: String, harga: String, stok: String) {
+    private fun addBarang(namabarang: String, harga: String, stok: String, desc: String) {
         val nameXXX = UUID.randomUUID().toString()
         val idbarang = UUID.randomUUID().toString()
         val idstore = intent.getStringExtra("idstore")
@@ -194,6 +195,7 @@ class ListBarang : AppCompatActivity() {
         dbRef.child("idstore").setValue(idstore)
         dbRef.child("namabarang").setValue(namabarang)
         dbRef.child("stok").setValue(stok)
+        dbRef.child("desc").setValue(desc)
         dbRef.child("harga").setValue(harga)
         dbRef.child("idpemilik").setValue(uid)
         Toast.makeText(

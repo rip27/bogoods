@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bogoods.R
 import com.example.bogoods.adapter.ListBarangAdapter
+import com.example.bogoods.adapter.StoreAddOrderAdapter
 import com.example.bogoods.data.Pref
 import com.example.bogoods.model.ListBarangModel
+import com.example.bogoods.model.StoreModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -30,8 +32,8 @@ class AddOrder : AppCompatActivity() {
     lateinit var firebaseStorage: FirebaseStorage
     lateinit var storageReference: StorageReference
     private var recyclerView: RecyclerView? = null
-    private var list: MutableList<ListBarangModel> = ArrayList()
-    private var listBarangAdapter: ListBarangAdapter? = null
+    private var list: MutableList<StoreModel> = ArrayList()
+    private var adapter: StoreAddOrderAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +46,7 @@ class AddOrder : AppCompatActivity() {
     }
     private fun showData() {
         var linearLayoutManager = LinearLayoutManager(this@AddOrder)
-        recyclerView = findViewById(R.id.rc_barang)
+        recyclerView = findViewById(R.id.rc_cstore)
         recyclerView!!.layoutManager = linearLayoutManager
         recyclerView!!.setHasFixedSize(true)
 
@@ -58,12 +60,26 @@ class AddOrder : AppCompatActivity() {
                 list = ArrayList()
                 for (dataSnapshot in p0.children) {
                     val addDataAll = dataSnapshot.getValue(
-                        ListBarangModel::class.java
+                        StoreModel::class.java
                     )
                     addDataAll!!.key = dataSnapshot.key
-                    list.add(addDataAll)
-                    listBarangAdapter = ListBarangAdapter(this@AddOrder, list)
-                    recyclerView!!.adapter = listBarangAdapter
+                    FirebaseDatabase.getInstance()
+                        .reference.child("store/${dataSnapshot.key}")
+                        .child("requestconnection").orderByChild("status").equalTo("accept")
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(p0: DatabaseError) {
+
+                            }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+                                if (p0.exists()){
+                                    list.add(addDataAll)
+                                }
+                            }
+
+                        })
+                    adapter = StoreAddOrderAdapter(this@AddOrder, list)
+                    recyclerView!!.adapter = adapter
                 }
             }
 
