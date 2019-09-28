@@ -1,5 +1,6 @@
 package com.example.bogoods.page
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,10 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bogoods.R
-import com.example.bogoods.adapter.ListBarangAdapter
 import com.example.bogoods.adapter.StoreAddOrderAdapter
 import com.example.bogoods.data.Pref
-import com.example.bogoods.model.ListBarangModel
 import com.example.bogoods.model.StoreModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -89,5 +88,19 @@ class AddOrder : AppCompatActivity() {
                 )
             }
         })
+        FirebaseDatabase.getInstance().getReference("cart").orderByChild("idpembeli").equalTo(fAuth.currentUser?.uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(p0: DataSnapshot) {
+                    count_cartoyono.text = p0.childrenCount.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+            })
+        add_to_order.setOnClickListener {
+            val intent = Intent(this@AddOrder, DetailPesanan::class.java)
+            startActivity(intent)
+        }
     }
 }

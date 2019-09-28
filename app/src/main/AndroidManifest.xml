@@ -12,7 +12,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".page.DetailPesanan">
+        <activity android:name=".page.DetailPesanan" android:parentActivityName=".page.AddOrder">
         </activity>
         <activity
                 android:name=".page.DetailBarang"

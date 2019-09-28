@@ -2,6 +2,7 @@ package com.example.bogoods.page
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -174,12 +175,12 @@ class DetailBarang : AppCompatActivity() {
         val idbarang = intent.getStringExtra("idbarang")
 
         val idcart = UUID.randomUUID().toString()
-        dbRef = FirebaseDatabase.getInstance().reference.child("store/$idstore/cart/$idcart")
+        dbRef = FirebaseDatabase.getInstance().reference.child("cart/$idcart")
         dbRef.child("idcart").setValue(idcart)
         dbRef.child("idbarang").setValue(idbarang)
         dbRef.child("idstore").setValue(idstore)
         dbRef.child("jumlah").setValue(stok)
         dbRef.child("idpembeli").setValue(fAuth.currentUser?.uid)
-        Toast.makeText(this, "Sukses Masuk", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Sukses Masuk ", Toast.LENGTH_SHORT).show()
     }
 }

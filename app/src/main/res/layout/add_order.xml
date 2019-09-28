@@ -45,8 +45,38 @@
             android:layout_below="@+id/cuok"
             android:layout_width="match_parent"
             android:id="@+id/rc_cstore"
+            android:layout_above="@+id/add_to_order"
             android:layout_height="match_parent"/>
+    <RelativeLayout
+            android:id="@+id/add_to_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:background="#3f3"
+            android:padding="10dp">
 
+        <ImageView android:id="@+id/ic_cart_white"
+                   android:layout_width="20dp"
+                   android:layout_height="20dp"
+                   android:src="@drawable/ic_shopping_cart_white"/>
+
+        <TextView android:id="@+id/pesan-sekarang"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="10dp"
+                  android:layout_centerHorizontal="true"
+                  android:text="Pesan Sekarang"
+                  android:textColor="#fff"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:textColor="#fff"
+                  android:text="10"
+                  android:id="@+id/count_cartoyono"
+                  android:layout_alignParentEnd="true"
+                  android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_alignParentEnd="true"

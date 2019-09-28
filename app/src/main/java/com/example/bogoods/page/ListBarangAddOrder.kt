@@ -42,7 +42,7 @@ class ListBarangAddOrder : AppCompatActivity() {
                 }
 
             })
-        FirebaseDatabase.getInstance().getReference("store/$idstore/cart")
+        FirebaseDatabase.getInstance().getReference("cart").orderByChild("idpembeli").equalTo(fAuth.currentUser?.uid)
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(p0: DataSnapshot) {
                     count_cart.text = p0.childrenCount.toString()
