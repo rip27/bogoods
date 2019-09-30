@@ -30,6 +30,9 @@ class ListBarangAddOrder : AppCompatActivity() {
         setSupportActionBar(toolbar_list_barang_add_order)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val idstore = intent.getStringExtra("idstore")
+
+        fAuth = FirebaseAuth.getInstance()
+        pref = Pref(this)
         FirebaseDatabase.getInstance().getReference("store/$idstore/storename")
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onCancelled(p0: DatabaseError) {
@@ -52,8 +55,6 @@ class ListBarangAddOrder : AppCompatActivity() {
                 }
 
             })
-        fAuth = FirebaseAuth.getInstance()
-        pref = Pref(this)
 
         val uid = fAuth.currentUser?.uid
 

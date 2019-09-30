@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.content_dashboard.*
 import kotlinx.android.synthetic.main.nav_header_dashboard.*
+import java.util.*
 
 class Dashboard : AppCompatActivity() {
 
@@ -32,6 +33,11 @@ class Dashboard : AppCompatActivity() {
 
         fAuth = FirebaseAuth.getInstance()
         pref = Pref(this)
+//
+//        val db = FirebaseDatabase.getInstance().getReference("cart")
+//        for (i in 0..1000) {
+//            db.child(UUID.randomUUID().toString()).setValue(UUID.randomUUID().toString())
+//        }
 
         FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
@@ -51,7 +57,7 @@ class Dashboard : AppCompatActivity() {
                 override fun onDataChange(p0: DataSnapshot) {
                     val jbb = p0.value.toString()
                     welcomejob.text = jbb
-                    if (jbb == "seller"){
+                    if (jbb == "seller") {
                         add_order_dashboard.visibility = View.GONE
                         add_connection_store_dashboard.visibility = View.GONE
                         your_order_dashboard.visibility = View.GONE

@@ -7,12 +7,15 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.*
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.bogoods.R
+import com.example.bogoods.adapter.CartAdapter
 import com.example.bogoods.data.Pref
+import com.example.bogoods.model.CartModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.detail_barang.*
@@ -174,13 +177,41 @@ class DetailBarang : AppCompatActivity() {
         val idstore = intent.getStringExtra("idstore")
         val idbarang = intent.getStringExtra("idbarang")
 
-        val idcart = UUID.randomUUID().toString()
-        dbRef = FirebaseDatabase.getInstance().reference.child("cart/$idcart")
-        dbRef.child("idcart").setValue(idcart)
-        dbRef.child("idbarang").setValue(idbarang)
-        dbRef.child("idstore").setValue(idstore)
-        dbRef.child("jumlah").setValue(stok)
-        dbRef.child("idpembeli").setValue(fAuth.currentUser?.uid)
-        Toast.makeText(this, "Sukses Masuk ", Toast.LENGTH_SHORT).show()
+
+        dbRef = FirebaseDatabase.getInstance().reference.child("cart/$idbarang")
+
+        Toast.makeText(this, "Sukses Masuk", Toast.LENGTH_SHORT).show()
+        FirebaseDatabase.getInstance()
+            .reference.child("cart/$idbarang/idbarang").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0.exists()){
+                    FirebaseDatabase.getInstance().getReference("cart/$idbarang/jumlah")
+                        .addListenerForSingleValueEvent(object : ValueEventListener{
+                            override fun onCancelled(p0: DatabaseError) {
+
+                            }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+                                val jumlah = p0.value.toString().toInt()
+                                dbRef.child("jumlah").setValue((jumlah + stok.toInt()).toString())
+                            }
+
+                        })
+                }else{
+                    dbRef.child("idcart").setValue(idbarang)
+                    dbRef.child("idbarang").setValue(idbarang)
+                    dbRef.child("idstore").setValue(idstore)
+                    dbRef.child("jumlah").setValue(stok)
+                    dbRef.child("idpembeli").setValue(fAuth.currentUser?.uid)
+                }
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+                Log.e(
+                    "TAG_ERROR", p0.message
+                )
+            }
+        })
+
     }
 }
