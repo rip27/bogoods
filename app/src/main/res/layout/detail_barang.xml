@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_margin="10dp"
-                    android:background="#33f"
+                    android:background="@drawable/button_blue_rounded"
                     android:id="@+id/add_to_cart"
                     android:padding="10dp">
 

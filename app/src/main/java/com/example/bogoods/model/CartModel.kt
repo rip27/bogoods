@@ -5,9 +5,11 @@ data class CartModel(
     var idcart: String? = null,
     var idbarang: String? = null,
     var idpembeli: String? = null,
+    var idpemilikstore: String? = null,
     var idstore: String? = null,
     var jumlah: String? = null,
     var barangModel: ListBarangModel? = null,
     var pembeliModel: UserModel? = null,
-    var storeModel: StoreModel? = null
+    var storeModel: StoreModel? = null,
+    var userModel: UserModel? = null
 )

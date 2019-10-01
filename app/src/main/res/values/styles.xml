@@ -16,5 +16,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    <style name="buttongreenyellow" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#ff3</item>
+        <item name="colorButtonNormal">#3f3</item>
+    </style>
 </resources>

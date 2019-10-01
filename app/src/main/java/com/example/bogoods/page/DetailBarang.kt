@@ -184,9 +184,9 @@ class DetailBarang : AppCompatActivity() {
         FirebaseDatabase.getInstance()
             .reference.child("cart/$idbarang/idbarang").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                if (p0.exists()){
+                if (p0.exists()) {
                     FirebaseDatabase.getInstance().getReference("cart/$idbarang/jumlah")
-                        .addListenerForSingleValueEvent(object : ValueEventListener{
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onCancelled(p0: DatabaseError) {
 
                             }
@@ -197,7 +197,19 @@ class DetailBarang : AppCompatActivity() {
                             }
 
                         })
-                }else{
+                } else {
+                    FirebaseDatabase.getInstance().getReference("store/$idstore/idpemilik")
+                        .addListenerForSingleValueEvent(
+                            object : ValueEventListener {
+                                override fun onCancelled(p0: DatabaseError) {
+
+                                }
+
+                                override fun onDataChange(p0: DataSnapshot) {
+                                    dbRef.child("idpemilikstore").setValue(p0.value.toString())
+                                }
+                            }
+                        )
                     dbRef.child("idcart").setValue(idbarang)
                     dbRef.child("idbarang").setValue(idbarang)
                     dbRef.child("idstore").setValue(idstore)

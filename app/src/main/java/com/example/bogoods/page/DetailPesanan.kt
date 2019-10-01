@@ -1,9 +1,12 @@
 package com.example.bogoods.page
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.e
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bogoods.R
@@ -18,7 +21,8 @@ import kotlinx.android.synthetic.main.detail_barang.*
 import kotlinx.android.synthetic.main.detail_pesanan.*
 import java.util.ArrayList
 
-class DetailPesanan : AppCompatActivity() {
+class DetailPesanan : AppCompatActivity(), CartAdapter.CartTotal {
+
 
     lateinit var fAuth: FirebaseAuth
     lateinit var dbRef: DatabaseReference
@@ -27,6 +31,13 @@ class DetailPesanan : AppCompatActivity() {
     private var adapter: CartAdapter? = null
     private var recyclerView: RecyclerView? = null
     private var list: MutableList<CartModel> = ArrayList()
+    private var total = 0
+
+    @SuppressLint("SetTextI18n")
+    override fun total(jumlah: Int) {
+        total+=jumlah
+        subtotaldp.text = " Rp. " + total.toString()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +51,27 @@ class DetailPesanan : AppCompatActivity() {
         pref = Pref(this)
         fAuth = FirebaseAuth.getInstance()
 
+        FirebaseDatabase.getInstance().getReference("cart")
+            .orderByChild("idpembeli").equalTo(fAuth.currentUser?.uid)
+            .addListenerForSingleValueEvent(
+            object : ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                @SuppressLint("SetTextI18n")
+                override fun onDataChange(p0: DataSnapshot) {
+                    qty.text = " Barang " + p0.childrenCount
+                }
+
+            }
+        )
+
         init()
+
+        add_to_order_dp.setOnClickListener {
+
+        }
 
     }
 
@@ -87,18 +118,28 @@ class DetailPesanan : AppCompatActivity() {
 //                        list.add(addDataAll)
 //                    }
 //                }
-                list = ArrayList()
-                for (dataSnapshot in p0.children) {
-                    val addDataAll = dataSnapshot.getValue(
-                        CartModel::class.java
-                    )
-                    addDataAll!!.key = dataSnapshot.key
-                    if (addDataAll.idpembeli.toString() == fAuth.currentUser?.uid) {
-                        list.add(addDataAll)
+                if (p0.childrenCount.toInt() == 0) {
+                    rc_cart.visibility = View.GONE
+                    cartkosong.visibility = View.VISIBLE
+                    mulaibelanja.setOnClickListener {
+                        startActivity(Intent(this@DetailPesanan, AddOrder::class.java))
                     }
+                } else {
+                    rc_cart.visibility = View.VISIBLE
+                    cartkosong.visibility = View.GONE
+                    list = ArrayList()
+                    for (dataSnapshot in p0.children) {
+                        val addDataAll = dataSnapshot.getValue(
+                            CartModel::class.java
+                        )
+                        addDataAll!!.key = dataSnapshot.key
+                        if (addDataAll.idpembeli.toString() == fAuth.currentUser?.uid) {
+                            list.add(addDataAll)
+                        }
+                    }
+                    adapter = CartAdapter(this@DetailPesanan, list)
+                    recyclerView!!.adapter = adapter
                 }
-                adapter = CartAdapter(this@DetailPesanan, list)
-                recyclerView!!.adapter = adapter
             }
 
             override fun onCancelled(p0: DatabaseError) {

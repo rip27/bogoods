@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:paddingTop="20dp"
+              android:paddingBottom="20dp"
+              android:layout_height="wrap_content">
+
+    <LinearLayout android:id="@+id/content_stok"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginEnd="10dp">
+        <TextView android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:text="Stok"
+                  android:layout_marginEnd="10dp"
+                  android:textAlignment="textEnd"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+        <TextView android:id="@+id/tv_stok_popup"
+                  android:layout_width="0dp"
+                  android:layout_marginStart="10dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:text=""
+                  android:textAlignment="textStart"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                  android:textColor="@android:color/black"/>
+    </LinearLayout>
+    <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:background="#f88"
+                android:layout_toStartOf="@+id/tv_stok_dinamis"
+                android:id="@+id/bt_min_stok"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            <TextView android:layout_width="wrap_content"
+                      android:text="-"
+                      android:textColor="#fff"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                      android:textAlignment="center"
+                      android:layout_centerInParent="true"
+                      android:layout_margin="5dp"
+                      android:padding="5dp"
+                      android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <TextView android:layout_width="wrap_content"
+                  android:text="1"
+                  android:id="@+id/tv_stok_dinamis"
+                  android:textColor="#000"
+                  android:layout_marginStart="50dp"
+                  android:layout_marginEnd="50dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_centerInParent="true"
+                  android:layout_height="wrap_content"/>
+        <RelativeLayout
+                android:layout_toEndOf="@+id/tv_stok_dinamis"
+                android:background="#8f8"
+                android:id="@+id/bt_plus_stok"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            <TextView android:layout_width="wrap_content"
+                      android:text="+"
+                      android:textColor="#fff"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                      android:textAlignment="center"
+                      android:layout_centerInParent="true"
+                      android:layout_margin="5dp"
+                      android:padding="5dp"
+                      android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <Button android:layout_width="wrap_content"
+            android:text="Perbarui stok"
+            android:id="@+id/perbaruistok"
+            android:textColor="#fff"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:background="@drawable/button_green_rounded_5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+</LinearLayout>
