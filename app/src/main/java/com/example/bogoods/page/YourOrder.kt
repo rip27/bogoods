@@ -1,5 +1,6 @@
 package com.example.bogoods.page
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +10,10 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bogoods.R
+import com.example.bogoods.adapter.OrderAdapter
 import com.example.bogoods.adapter.StoreAdapter
 import com.example.bogoods.data.Pref
+import com.example.bogoods.model.OrderModel
 import com.example.bogoods.model.StoreModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -32,9 +35,9 @@ class YourOrder : AppCompatActivity() {
     lateinit var filePathImage: Uri
     lateinit var firebaseStorage: FirebaseStorage
     lateinit var storageReference: StorageReference
-    private var storeAdapter: StoreAdapter? = null
+    private var adapter: OrderAdapter? = null
     private var recyclerView: RecyclerView? = null
-    private var list: MutableList<StoreModel> = ArrayList()
+    private var list: MutableList<OrderModel> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,33 +51,37 @@ class YourOrder : AppCompatActivity() {
 
         val uid = fAuth.currentUser?.uid
 
+        add_order.setOnClickListener {
+            startActivity(Intent(this@YourOrder, AddOrder::class.java))
+        }
+
+        init()
+
     }
 
     private fun init() {
         var linearLayoutManager = LinearLayoutManager(this@YourOrder)
-        recyclerView = findViewById(R.id.rc_store)
+        recyclerView = findViewById(R.id.rc_your_order)
         recyclerView!!.layoutManager = linearLayoutManager
         recyclerView!!.setHasFixedSize(true)
 
         fAuth = FirebaseAuth.getInstance()
 
         dbRef = FirebaseDatabase.getInstance()
-            .reference.child("store")
-        dbRef.orderByChild("status").equalTo("y")
+            .reference.child("order")
+        dbRef.orderByChild("idpembeli").equalTo(fAuth.currentUser?.uid)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     list = ArrayList()
                     for (dataSnapshot in p0.children) {
                         val addDataAll = dataSnapshot.getValue(
-                            StoreModel::class.java
+                            OrderModel::class.java
                         )
                         addDataAll!!.key = dataSnapshot.key
-                        if (addDataAll.idpemilik.toString() == fAuth.currentUser?.uid) {
-                            list.add(addDataAll)
-                        }
-                        storeAdapter = StoreAdapter(this@YourOrder, list)
-                        recyclerView!!.adapter = storeAdapter
+                        list.add(addDataAll)
                     }
+                    adapter = OrderAdapter(this@YourOrder, list)
+                    recyclerView!!.adapter = adapter
                 }
 
                 override fun onCancelled(p0: DatabaseError) {

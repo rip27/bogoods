@@ -95,7 +95,7 @@ class DetailBarang : AppCompatActivity() {
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
-                        tv_harga_detail.setText(p0.value.toString())
+                        tv_harga_detail.setText("Rp. " + p0.value.toString())
                     }
 
                 }

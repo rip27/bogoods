@@ -51,7 +51,7 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
         val lbModel: ListBarangModel = itemList.get(position)
         fauth = FirebaseAuth.getInstance()
         holder.namabarang.text = lbModel.namabarang
-        holder.harga.text = lbModel.harga
+        holder.harga.text = "Rp. " + lbModel.harga
         holder.stok.text = lbModel.stok
         Glide.with(mCtx).load(lbModel.imagebarang)
             .centerCrop()
