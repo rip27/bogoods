@@ -30,9 +30,9 @@
                           android:orientation="vertical">
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:layout_marginStart="5dp"
+                              android:layout_marginStart="10dp"
                               android:layout_marginTop="5dp"
-                              android:layout_marginEnd="5dp"
+                              android:layout_marginEnd="10dp"
                               android:paddingBottom="10dp">
                     <TextView android:layout_width="0dp"
                               android:layout_height="wrap_content"
@@ -46,14 +46,14 @@
                 </LinearLayout>
                 <View android:layout_width="match_parent"
                       android:layout_height="1dp"
-                      android:layout_marginStart="5dp"
-                      android:layout_marginEnd="5dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
                       android:background="#555"/>
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:layout_marginStart="5dp"
+                              android:layout_marginStart="10dp"
                               android:layout_marginTop="5dp"
-                              android:layout_marginEnd="5dp"
+                              android:layout_marginEnd="10dp"
                               android:paddingBottom="10dp">
                     <TextView android:layout_width="0dp"
                               android:layout_height="wrap_content"
@@ -67,14 +67,14 @@
                 </LinearLayout>
                 <View android:layout_width="match_parent"
                       android:layout_height="1dp"
-                      android:layout_marginStart="5dp"
-                      android:layout_marginEnd="5dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
                       android:background="#555"/>
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:layout_marginStart="5dp"
+                              android:layout_marginStart="10dp"
                               android:layout_marginTop="5dp"
-                              android:layout_marginEnd="5dp"
+                              android:layout_marginEnd="10dp"
                               android:paddingBottom="10dp">
                     <TextView android:layout_width="0dp"
                               android:layout_height="wrap_content"
@@ -88,14 +88,14 @@
                 </LinearLayout>
                 <View android:layout_width="match_parent"
                       android:layout_height="1dp"
-                      android:layout_marginStart="5dp"
-                      android:layout_marginEnd="5dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
                       android:background="#555"/>
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:layout_marginStart="5dp"
+                              android:layout_marginStart="10dp"
                               android:layout_marginTop="5dp"
-                              android:layout_marginEnd="5dp"
+                              android:layout_marginEnd="10dp"
                               android:paddingBottom="10dp">
                     <TextView android:layout_width="0dp"
                               android:layout_height="wrap_content"

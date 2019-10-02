@@ -13,6 +13,7 @@ data class OrderModel(
     var totalbayar: String? = null,
     var statusbarang: String? = null,
     var pembayaran: String? = null,
+    var buktitforder: String? = null,
     var statuspembayaran: String? = null,
     var alamatpengiriman: String? = null,
     var total: String? = null,

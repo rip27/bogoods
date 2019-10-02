@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:id="@+id/rel"
+                android:id="@+id/rel_acc"
                 android:background="@drawable/stroke_item_list"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -12,11 +12,11 @@
     <TextView android:id="@+id/tokotv"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="Toko : "
+              android:text="Pembeli : "
               android:textStyle="bold"
               android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
-    <TextView android:id="@+id/storename_order"
+    <TextView android:id="@+id/pembeli_acc_order"
               android:textStyle="bold"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -29,12 +29,12 @@
                android:layout_below="@+id/tokotv"
                android:layout_margin="10dp"
                android:background="@drawable/round"
-               android:id="@+id/image_barang_order"
+               android:id="@+id/image_barang_acc_order"
                android:layout_height="50dp"/>
 
     <LinearLayout android:id="@+id/thead"
                   android:layout_marginStart="5dp"
-                  android:layout_toEndOf="@+id/image_barang_order"
+                  android:layout_toEndOf="@+id/image_barang_acc_order"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_below="@+id/tokotv"
@@ -59,22 +59,22 @@
     </LinearLayout>
     <LinearLayout android:id="@+id/tbody"
                   android:layout_marginStart="5dp"
-                  android:layout_toEndOf="@+id/image_barang_order"
+                  android:layout_toEndOf="@+id/image_barang_acc_order"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_below="@+id/thead">
-        <TextView android:id="@+id/nama_barang_order"
+        <TextView android:id="@+id/nama_barang_acc_order"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_weight="5"
                   android:textColor="#555"/>
-        <TextView android:id="@+id/jumlah_order"
+        <TextView android:id="@+id/jumlah_acc_order"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
                   android:textAlignment="center"
                   android:textColor="#555"/>
-        <TextView android:id="@+id/total_order"
+        <TextView android:id="@+id/total_acc_order"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_weight="4"
@@ -83,8 +83,8 @@
     </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent"
-            android:layout_below="@+id/image_barang_order"
-            android:id="@+id/c_total_bayar"
+            android:id="@+id/c_total_bayar_acc_order"
+            android:layout_below="@+id/image_barang_acc_order"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content">
         <TextView android:layout_width="0dp"
@@ -96,7 +96,7 @@
         <TextView android:layout_width="0dp"
                 android:layout_weight="5"
                 android:textAlignment="textEnd"
-                android:id="@+id/total_bayar_order"
+                android:id="@+id/total_bayar_acc_order"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_height="wrap_content"/>
@@ -104,7 +104,7 @@
     </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent"
-            android:layout_below="@+id/c_total_bayar"
+            android:layout_below="@+id/c_total_bayar_acc_order"
             android:layout_height="wrap_content">
         <TextView android:layout_width="0dp"
                 android:layout_weight="2"
@@ -115,7 +115,7 @@
         <TextView android:layout_width="0dp"
                 android:layout_weight="5"
                 android:textAlignment="textEnd"
-                android:id="@+id/status_order"
+                android:id="@+id/status_acc_order"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_height="wrap_content"/>

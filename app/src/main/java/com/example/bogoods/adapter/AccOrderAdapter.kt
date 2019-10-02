@@ -21,7 +21,7 @@ import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 
-class OrderAdapter : RecyclerView.Adapter<OrderAdapter.ViewHolder> {
+class AccOrderAdapter : RecyclerView.Adapter<AccOrderAdapter.ViewHolder> {
     lateinit var mCtx: Context
     lateinit var item: List<OrderModel>
     lateinit var pref: Pref
@@ -36,7 +36,7 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_list_order, parent, false)
+            .inflate(R.layout.item_list_acc_order, parent, false)
         val ViewHolder = ViewHolder(view)
         return ViewHolder
     }
@@ -53,14 +53,14 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.ViewHolder> {
         holder.totalbayar.text = model.totalbayar
         holder.jumlah.text = model.jumlah
         FirebaseDatabase.getInstance()
-            .getReference("store/")
-            .child(model.idstore!!)
+            .getReference("user/")
+            .child(model.idpembeli!!)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(data2: DataSnapshot) {
                     val data =
-                        data2.getValue(StoreModel::class.java)
-                    model.storeModel = data
-                    holder.namastore.text = model.storeModel!!.storename
+                        data2.getValue(UserModel::class.java)
+                    model.userModel = data
+                    holder.pembeli.text = "${model.userModel!!.name} ( ${model.userModel!!.phone} )"
                 }
 
                 override fun onCancelled(holder: DatabaseError) {
@@ -118,7 +118,7 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.ViewHolder> {
             }
         }
         holder.rl.setOnClickListener {
-            val intent = Intent(mCtx, DetailOrder::class.java)
+            val intent = Intent(mCtx, DetailAccOrder::class.java)
             intent.putExtra("idorder", model.idorder)
             mCtx.startActivity(intent)
         }
@@ -126,7 +126,7 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var rl: RelativeLayout
-        var namastore: TextView
+        var pembeli: TextView
         var namabarang: TextView
         var jumlah: TextView
         var total: TextView
@@ -135,14 +135,14 @@ class OrderAdapter : RecyclerView.Adapter<OrderAdapter.ViewHolder> {
         var imagebarang: ImageView
 
         init {
-            rl = itemView.findViewById(R.id.rel)
-            namastore = itemView.findViewById(R.id.storename_order)
-            namabarang = itemView.findViewById(R.id.nama_barang_order)
-            total = itemView.findViewById(R.id.total_order)
-            totalbayar = itemView.findViewById(R.id.total_bayar_order)
-            jumlah = itemView.findViewById(R.id.jumlah_order)
-            status = itemView.findViewById(R.id.status_order)
-            imagebarang = itemView.findViewById(R.id.image_barang_order)
+            rl = itemView.findViewById(R.id.rel_acc)
+            pembeli = itemView.findViewById(R.id.pembeli_acc_order)
+            namabarang = itemView.findViewById(R.id.nama_barang_acc_order)
+            total = itemView.findViewById(R.id.total_acc_order)
+            totalbayar = itemView.findViewById(R.id.total_bayar_acc_order)
+            jumlah = itemView.findViewById(R.id.jumlah_acc_order)
+            status = itemView.findViewById(R.id.status_acc_order)
+            imagebarang = itemView.findViewById(R.id.image_barang_acc_order)
         }
     }
 

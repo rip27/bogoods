@@ -88,7 +88,7 @@ class Dashboard : AppCompatActivity() {
         }
 
         accept_order_dashboard.setOnClickListener {
-
+            startActivity(Intent(this@Dashboard, AccOrder::class.java))
         }
 
         add_connection_store_dashboard.setOnClickListener {

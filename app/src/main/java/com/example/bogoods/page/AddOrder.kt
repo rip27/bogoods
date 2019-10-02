@@ -41,8 +41,23 @@ class AddOrder : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         showData()
 
+        FirebaseDatabase.getInstance().getReference("cart").orderByChild("idpembeli").equalTo(fAuth.currentUser?.uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(p0: DataSnapshot) {
+                    count_cartoyono.text = p0.childrenCount.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+            })
+        add_to_order.setOnClickListener {
+            val intent = Intent(this@AddOrder, DetailPesanan::class.java)
+            startActivity(intent)
+        }
 
     }
+
     private fun showData() {
         var linearLayoutManager = LinearLayoutManager(this@AddOrder)
         recyclerView = findViewById(R.id.rc_cstore)
@@ -88,19 +103,5 @@ class AddOrder : AppCompatActivity() {
                 )
             }
         })
-        FirebaseDatabase.getInstance().getReference("cart").orderByChild("idpembeli").equalTo(fAuth.currentUser?.uid)
-            .addListenerForSingleValueEvent(object : ValueEventListener{
-                override fun onDataChange(p0: DataSnapshot) {
-                    count_cartoyono.text = p0.childrenCount.toString()
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-
-            })
-        add_to_order.setOnClickListener {
-            val intent = Intent(this@AddOrder, DetailPesanan::class.java)
-            startActivity(intent)
-        }
     }
 }

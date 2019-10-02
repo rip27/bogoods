@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".page.AccOrder">
+
+    <androidx.appcompat.widget.Toolbar
+            app:title="Accept Order"
+            android:id="@+id/toolbar_acc_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/toolbar_acc_order"
+            android:background="#33f" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/rc_acc_order"
+            android:layout_below="@+id/toolbar_acc_order"
+            android:layout_margin="5dp"
+            android:layout_height="match_parent"/>
+
+</RelativeLayout>
