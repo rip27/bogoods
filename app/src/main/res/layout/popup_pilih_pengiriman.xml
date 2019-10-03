@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="#fff"
+                android:padding="10dp">
+
+    <Spinner android:layout_width="match_parent"
+             android:entries="@array/pengiriman"
+             android:id="@+id/pilih_metode_pengiriman"
+             android:layout_height="50dp"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="SET"
+            android:layout_marginTop="20dp"
+            android:textColor="#fff"
+            android:id="@+id/bt_pilih_pengiriman_popup"
+            android:background="@drawable/button_green_rounded_5dp"
+            android:layout_below="@+id/pilih_metode_pengiriman"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

@@ -93,12 +93,33 @@
                   android:textAppearance="@style/TextAppearance.AppCompat.Small"
                   android:textColor="@android:color/black"/>
     </LinearLayout>
-    <RelativeLayout android:layout_width="match_parent"
+    <View android:layout_width="match_parent"
+          android:background="@drawable/hitamputihgradasibottom"
+          android:layout_below="@+id/content_desc"
+          android:layout_height="5dp"/>
+    <TextView android:id="@+id/rating_barang_number"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/content_desc"
+              android:layout_marginStart="10dp"
+              android:layout_marginEnd="10dp"
+              android:layout_marginTop="20dp"
+              android:textAppearance="@style/TextAppearance.AppCompat.Small"
+              android:textColor="#000"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_rating"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/add_to_cart"
+            android:layout_below="@+id/rating_barang_number"
+            android:layout_margin="5dp"/>
+
+    <RelativeLayout android:id="@+id/add_to_cart"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_margin="10dp"
                     android:background="@drawable/button_blue_rounded"
-                    android:id="@+id/add_to_cart"
                     android:padding="10dp">
 
         <TextView android:layout_width="wrap_content"

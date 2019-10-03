@@ -16,6 +16,7 @@ import com.example.bogoods.R
 import com.example.bogoods.data.Pref
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.add_order.*
 import kotlinx.android.synthetic.main.content_dashboard.*
 import kotlinx.android.synthetic.main.nav_header_dashboard.*
 import java.util.*
@@ -82,7 +83,16 @@ class Dashboard : AppCompatActivity() {
         my_store.setOnClickListener {
             startActivity(Intent(this@Dashboard, MyStore::class.java))
         }
-
+//        FirebaseDatabase.getInstance().getReference("order").orderByChild("idpemilikstore").equalTo(fAuth.currentUser?.uid)
+//            .addListenerForSingleValueEvent(object : ValueEventListener{
+//                override fun onDataChange(p0: DataSnapshot) {
+//                    count_acc_order.text = p0.childrenCount.toString()
+//                }
+//
+//                override fun onCancelled(p0: DatabaseError) {
+//                }
+//
+//            })
         accept_req_connection_store_dashboard.setOnClickListener {
             startActivity(Intent(this@Dashboard, AcceptRequest::class.java))
         }
@@ -91,6 +101,16 @@ class Dashboard : AppCompatActivity() {
             startActivity(Intent(this@Dashboard, AccOrder::class.java))
         }
 
+        FirebaseDatabase.getInstance().getReference("order").orderByChild("idpemilikstore").equalTo(fAuth.currentUser?.uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(p0: DataSnapshot) {
+                    count_acc_order.text = p0.childrenCount.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+            })
         add_connection_store_dashboard.setOnClickListener {
             startActivity(Intent(this@Dashboard, ReqConStore::class.java))
         }
@@ -99,5 +119,15 @@ class Dashboard : AppCompatActivity() {
             startActivity(Intent(this@Dashboard, YourOrder::class.java))
         }
 
+        FirebaseDatabase.getInstance().getReference("order").orderByChild("idpembeli").equalTo(fAuth.currentUser?.uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(p0: DataSnapshot) {
+                    count_your_order.text = p0.childrenCount.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+            })
     }
 }

@@ -179,6 +179,7 @@
                               android:textStyle="bold"/>
                 </LinearLayout>
                 <LinearLayout android:id="@+id/bt_beli_lagi"
+                              android:visibility="gone"
                               android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
                               android:layout_below="@+id/pembatas"
@@ -189,6 +190,22 @@
                               android:layout_height="wrap_content"
                               android:layout_margin="10dp"
                               android:text="Order Lagi"
+                              android:textAllCaps="true"
+                              android:textColor="#fff"
+                              android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/bt_rating_barang"
+                              android:visibility="gone"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_below="@+id/pembatas"
+                              android:layout_toStartOf="@+id/bt_beli_lagi"
+                              android:layout_margin="10dp"
+                              android:background="@drawable/button_blue_rounded">
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_margin="10dp"
+                              android:text="Rating"
                               android:textAllCaps="true"
                               android:textColor="#fff"
                               android:textStyle="bold"/>

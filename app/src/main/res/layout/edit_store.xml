@@ -38,8 +38,9 @@
         <EditText
                 android:id="@+id/et_nama_store_edit"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:layout_margin="2dp"
+                android:textSize="12sp"
                 android:background="@drawable/shape_et_auth"
                 android:hint="Nama Store"
                 android:inputType="text"
@@ -67,11 +68,12 @@
         <EditText
                 android:id="@+id/et_address_store_edit"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:layout_margin="2dp"
                 android:background="@drawable/shape_et_auth"
                 android:hint="Alamat Store"
                 android:inputType="text"
+                android:textSize="12sp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:textColorHint="#666"/>
@@ -98,14 +100,14 @@
                   android:layout_height="wrap_content"
                   android:layout_below="@+id/content_image_store"
                   android:layout_centerHorizontal="true"
-                  android:layout_marginTop="5dp"
-                  android:background="#99f">
+                  android:layout_marginTop="10dp"
+                  android:background="@drawable/stroke_item_list">
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_margin="5dp"
                   android:text="Set Image Store"
-                  android:textColor="@android:color/white"/>
+                  android:textColor="@android:color/black"/>
 
     </LinearLayout>
     <Button android:id="@+id/bt_save_edit_store"

@@ -1,6 +1,7 @@
 package com.example.bogoods.page
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -11,11 +12,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bogoods.R
 import com.example.bogoods.adapter.CartAdapter
+import com.example.bogoods.adapter.RatingAdapter
+import com.example.bogoods.adapter.StoreAdapter
 import com.example.bogoods.data.Pref
 import com.example.bogoods.model.CartModel
+import com.example.bogoods.model.RatingModel
+import com.example.bogoods.model.StoreModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.detail_barang.*
@@ -24,11 +31,17 @@ import java.util.*
 
 class DetailBarang : AppCompatActivity() {
 
+
     lateinit var fAuth: FirebaseAuth
     lateinit var dbRef: DatabaseReference
     lateinit var pref: Pref
     lateinit var btplus: RelativeLayout
     lateinit var btmin: RelativeLayout
+
+    private var adapter: RatingAdapter? = null
+    private var recyclerView: RecyclerView? = null
+    private var list: MutableList<RatingModel> = ArrayList()
+    private var total = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +56,40 @@ class DetailBarang : AppCompatActivity() {
 
         val idstore = intent.getStringExtra("idstore")
         val idbarang = intent.getStringExtra("idbarang")
+
+// Rating
+        var linearLayoutManager = LinearLayoutManager(this@DetailBarang)
+        recyclerView = findViewById(R.id.rc_rating)
+        recyclerView!!.layoutManager = linearLayoutManager
+        recyclerView!!.setHasFixedSize(true)
+
+        fAuth = FirebaseAuth.getInstance()
+
+        val ratingRef = FirebaseDatabase.getInstance()
+            .reference.child("store/$idstore/listbarang/$idbarang/rating")
+        ratingRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                list = ArrayList()
+                for (dataSnapshot in p0.children) {
+                    val addDataAll = dataSnapshot.getValue(
+                        RatingModel::class.java
+                    )
+                    addDataAll!!.key = dataSnapshot.key
+                    list.add(addDataAll)
+                    adapter = RatingAdapter(this@DetailBarang, list)
+                    recyclerView!!.adapter = adapter
+                }
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+                Log.e(
+                    "TAG_ERROR", p0.message
+                )
+            }
+        })
+
+        total()
+
 
         FirebaseDatabase.getInstance().getReference("store/$idstore/listbarang/$idbarang")
             .child("imagebarang").addListenerForSingleValueEvent(
@@ -119,6 +166,29 @@ class DetailBarang : AppCompatActivity() {
         }
     }
 
+    fun total() {
+        val idstore = intent.getStringExtra("idstore")
+        val idbarang = intent.getStringExtra("idbarang")
+        val ratingRef = FirebaseDatabase.getInstance()
+            .reference.child("store/$idstore/listbarang/$idbarang/rating")
+        ratingRef.addListenerForSingleValueEvent(
+            object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    var i = 0
+                    var rating = 0f
+                    p0.children.forEach {
+                        rating+=rating + it.child("rating").value.toString().toFloat()
+                        i++
+                    }
+                    rating_barang_number.text = "Rating\n${(rating/i)} dari $i Ulasan"
+                }
+            }
+        )
+    }
     private fun showDialogCart() {
         var dialog: AlertDialog
         val alertDialog = AlertDialog.Builder(this)

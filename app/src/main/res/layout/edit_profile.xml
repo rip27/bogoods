@@ -48,7 +48,8 @@
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:textColorHint="#666"
-                android:layout_height="50dp"/>
+                android:textSize="12sp"
+                android:layout_height="30dp"/>
     </LinearLayout>
     <LinearLayout
             android:layout_marginHorizontal="20dp"
@@ -65,9 +66,10 @@
                 android:id="@+id/et_phone_seller_edit"
                 android:paddingHorizontal="10dp"
                 android:hint="Phone"
+                android:textSize="12sp"
                 android:inputType="phone"
                 android:textColorHint="#666"
-                android:layout_height="50dp"/>
+                android:layout_height="30dp"/>
     </LinearLayout>
     <LinearLayout
             android:layout_marginHorizontal="20dp"
@@ -83,8 +85,9 @@
                 android:background="@drawable/shape_et_auth"
                 android:id="@+id/sp_gender_seller_edit"
                 android:paddingHorizontal="10dp"
+                android:textSize="12sp"
                 android:entries="@array/gender"
-                android:layout_height="50dp"/>
+                android:layout_height="30dp"/>
     </LinearLayout>
 
     <LinearLayout

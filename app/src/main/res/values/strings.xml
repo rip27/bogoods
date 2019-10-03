@@ -17,6 +17,10 @@
         <item>Bayar di Tempat</item>
         <item>Transfer BCA</item>
     </string-array>
+    <string-array name="pengiriman">
+        <item>Jasa Paket</item>
+        <item>Diantar Penjual</item>
+    </string-array>
     <string name="title_activity_dashboard_seller">BoGoods</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

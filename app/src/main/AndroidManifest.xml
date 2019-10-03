@@ -30,7 +30,7 @@
                 android:parentActivityName=".page.AddOrder" />
         <activity
                 android:name=".page.EditBarang"
-                android:parentActivityName=".page.ListBarang" />
+                android:parentActivityName=".page.MyStore" />
         <activity
                 android:name=".page.EditStore"
                 android:parentActivityName=".page.MyStore" />

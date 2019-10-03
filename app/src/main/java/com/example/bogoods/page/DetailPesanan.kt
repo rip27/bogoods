@@ -36,7 +36,7 @@ class DetailPesanan : AppCompatActivity(), CartAdapter.CartTotal {
     @SuppressLint("SetTextI18n")
     override fun total(jumlah: Int) {
         total+=jumlah
-        subtotaldp.text = " Rp. " + total.toString()
+//        subtotaldp.text = " Rp. " + total.toString()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +61,7 @@ class DetailPesanan : AppCompatActivity(), CartAdapter.CartTotal {
 
                 @SuppressLint("SetTextI18n")
                 override fun onDataChange(p0: DataSnapshot) {
-                    qty.text = " Barang " + p0.childrenCount
+//                    qty.text = " Barang " + p0.childrenCount
                 }
 
             }
@@ -69,9 +69,9 @@ class DetailPesanan : AppCompatActivity(), CartAdapter.CartTotal {
 
         init()
 
-        add_to_order_dp.setOnClickListener {
-
-        }
+//        add_to_order_dp.setOnClickListener {
+//
+//        }
 
     }
 

@@ -92,29 +92,32 @@ class AccOrderAdapter : RecyclerView.Adapter<AccOrderAdapter.ViewHolder> {
                 model.statuspembayaran.toString() == "p" -> {
                     holder.status.text = "Menunggu Konfirmasi Pembayaran"
                 }
-                model.statuspembayaran.toString() == "konfirmasiseller" -> {
-                    holder.status.text = "Pembayaran Lunas \n Menunggu Konfirmasi Pesanan dari Penjual"
-                }
-                model.statuspembayaran.toString() == "y" -> when {
+                model.statuspembayaran.toString() == "konfirmasiseller" -> when {
                     model.statusbarang.toString() == "n" -> holder.status.text =
                         "Pesanan Dibatalkan"
+                    model.statusbarang.toString() == "konfirm" -> holder.status.text = "Pesanan Terkonfirmasi"
                     model.statusbarang.toString() == "p" -> holder.status.text =
-                        "Menunggu Konfirmasi Pengiriman"
+                        "Menunggu Konfirmasi Pesanan"
                     model.statusbarang.toString() == "y" -> holder.status.text =
                         "Pesanan Sedang Dikirim"
                     model.statusbarang.toString() == "s" -> holder.status.text =
                         "Pesanan Sudah Diterima"
                 }
             }
-        } else if (model.pembayaran.toString() == "Bayar Di Tempat") {
-            when {
-                model.statusbarang.toString() == "n" -> holder.status.text = "Pesanan Dibatalkan"
-                model.statusbarang.toString() == "p" -> holder.status.text =
-                    "Menunggu Konfirmasi Pengiriman"
-                model.statusbarang.toString() == "y" -> holder.status.text =
-                    "Pesanan Sedang Dikirim"
-                model.statusbarang.toString() == "s" -> holder.status.text =
-                    "Pesanan Sudah Diterima"
+        } else if (model.pembayaran.toString() == "Bayar di Tempat") {
+            when (model.statuspembayaran.toString()) {
+                "konfirmasiseller" -> {
+                    when {
+                        model.statusbarang.toString() == "n" -> holder.status.text = "Pesanan Dibatalkan"
+                        model.statusbarang.toString() == "konfirm" -> holder.status.text = "Pesanan Terkonfirmasi"
+                        model.statusbarang.toString() == "p" -> holder.status.text =
+                            "Menunggu Konfirmasi Pesanan"
+                        model.statusbarang.toString() == "y" -> holder.status.text =
+                            "Pesanan Sedang Dikirim"
+                        model.statusbarang.toString() == "s" -> holder.status.text =
+                            "Pesanan Sudah Diterima"
+                    }
+                }
             }
         }
         holder.rl.setOnClickListener {

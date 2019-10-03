@@ -42,16 +42,15 @@
                 <LinearLayout android:id="@+id/bt_set_image_barang"
                               android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
-                              android:layout_below="@+id/content_image_barang"
                               android:layout_centerHorizontal="true"
-                              android:layout_marginTop="5dp"
-                              android:background="#99f">
+                              android:layout_marginTop="10dp"
+                              android:background="@drawable/stroke_item_list">
 
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
                               android:layout_margin="5dp"
                               android:text="Set Gambar Barang"
-                              android:textColor="@android:color/white"/>
+                              android:textColor="@android:color/black"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -75,8 +74,9 @@
                 <EditText
                         android:id="@+id/et_nama_barang_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="30dp"
                         android:layout_margin="2dp"
+                        android:textSize="12sp"
                         android:background="@drawable/shape_et_auth"
                         android:hint="Nama Barang"
                         android:inputType="text"
@@ -104,10 +104,11 @@
                 <EditText
                         android:id="@+id/et_harga_barang_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="30dp"
                         android:layout_margin="2dp"
                         android:background="@drawable/shape_et_auth"
                         android:hint="Harga"
+                        android:textSize="12sp"
                         android:inputType="number"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -133,10 +134,11 @@
                 <EditText
                         android:id="@+id/et_stok_barang_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="30dp"
                         android:layout_margin="2dp"
                         android:background="@drawable/shape_et_auth"
                         android:hint="Stok"
+                        android:textSize="12sp"
                         android:inputType="number"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -162,10 +164,11 @@
                 <EditText
                         android:id="@+id/et_desc_barang_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="30dp"
                         android:layout_margin="2dp"
                         android:background="@drawable/shape_et_auth"
                         android:hint="Desc"
+                        android:textSize="12sp"
                         android:inputType="textMultiLine"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"

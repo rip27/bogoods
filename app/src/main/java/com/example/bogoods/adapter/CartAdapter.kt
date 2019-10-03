@@ -295,7 +295,7 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.ViewHolder> {
                     db_add_order.child("statuspembayaran").setValue("n")
                 } else if (pembayaran == "Bayar di Tempat") {
                     db_add_order.child("pembayaran").setValue(pembayaran)
-                    db_add_order.child("statuspembayaran").setValue("cod")
+                    db_add_order.child("statuspembayaran").setValue("konfirmasiseller")
                 }
                 db_add_order.child("total").setValue(total_popup.text.toString())
                 db_add_order.child("statusbarang").setValue("p")
