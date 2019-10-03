@@ -16,9 +16,7 @@ import com.example.bogoods.data.Pref
 import com.example.bogoods.model.ListBarangModel
 import com.example.bogoods.model.StoreModel
 import com.example.bogoods.model.UserModel
-import com.example.bogoods.page.EditBarang
-import com.example.bogoods.page.EditStore
-import com.example.bogoods.page.ListBarang
+import com.example.bogoods.page.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
@@ -63,6 +61,12 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
             intent.putExtra("idbarang", lbModel.idbarang)
             mCtx.startActivity(intent)
         }
+        holder.ll.setOnClickListener {
+            val intent = Intent(mCtx, DetailListBarang::class.java)
+            intent.putExtra("idstore", lbModel.idstore)
+            intent.putExtra("idbarang", lbModel.idbarang)
+            mCtx.startActivity(intent)
+        }
     }
 
     inner class ListBarangViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -71,7 +75,7 @@ class ListBarangAdapter : RecyclerView.Adapter<ListBarangAdapter.ListBarangViewH
         var harga: TextView
         var stok: TextView
         var imagelb: ImageView
-        var ic_ed: ImageView
+        var ic_ed: TextView
 
         init {
             ll = itemView.findViewById(R.id.ll_list_barang)

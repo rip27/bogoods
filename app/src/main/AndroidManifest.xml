@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.example.bogoods">
+          package="com.example.bogoods">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
             android:allowBackup="true"
@@ -12,69 +12,73 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".page.DetailAccOrder" android:parentActivityName=".page.AccOrder"></activity>
+        <activity android:name=".page.DetailListBarang" android:parentActivityName=".page.MyStore">
+        </activity>
+        <activity
+                android:name=".page.DetailAccOrder"
+                android:parentActivityName=".page.AccOrder"/>
         <activity
                 android:name=".page.AccOrder"
-                android:parentActivityName=".page.Dashboard" />
+                android:parentActivityName=".page.Dashboard"/>
         <activity
                 android:name=".page.DetailOrder"
-                android:parentActivityName=".page.YourOrder" />
+                android:parentActivityName=".page.YourOrder"/>
         <activity
                 android:name=".page.DetailPesanan"
-                android:parentActivityName=".page.AddOrder" />
+                android:parentActivityName=".page.AddOrder"/>
         <activity
                 android:name=".page.DetailBarang"
-                android:parentActivityName=".page.AddOrder" />
+                android:parentActivityName=".page.AddOrder"/>
         <activity
                 android:name=".page.ListBarangAddOrder"
-                android:parentActivityName=".page.AddOrder" />
+                android:parentActivityName=".page.AddOrder"/>
         <activity
                 android:name=".page.EditBarang"
-                android:parentActivityName=".page.MyStore" />
+                android:parentActivityName=".page.MyStore"/>
         <activity
                 android:name=".page.EditStore"
-                android:parentActivityName=".page.MyStore" />
+                android:parentActivityName=".page.MyStore"/>
         <activity
                 android:name=".page.ListRequest"
-                android:parentActivityName=".page.AcceptRequest" />
+                android:parentActivityName=".page.AcceptRequest"/>
         <activity
                 android:name=".page.AcceptRequest"
-                android:parentActivityName=".page.Dashboard" />
+                android:parentActivityName=".page.Dashboard"/>
         <activity
                 android:name=".page.ReqConStore"
-                android:parentActivityName=".page.AddOrder" />
+                android:parentActivityName=".page.AddOrder"/>
         <activity
                 android:name=".page.AddOrder"
-                android:parentActivityName=".page.YourOrder" />
+                android:parentActivityName=".page.YourOrder"/>
         <activity
                 android:name=".page.YourOrder"
-                android:parentActivityName=".page.Dashboard" />
+                android:parentActivityName=".page.Dashboard"/>
         <activity
                 android:name=".page.ListBarang"
-                android:parentActivityName=".page.MyStore" />
+                android:parentActivityName=".page.MyStore"/>
         <activity
                 android:name=".page.FillData"
-                android:parentActivityName=".page.ChooseAs" />
-        <activity android:name=".page.Login" />
+                android:parentActivityName=".page.ChooseAs"/>
+        <activity android:name=".page.Login"/>
         <activity
                 android:name=".page.MyStore"
-                android:parentActivityName=".page.Dashboard" />
+                android:parentActivityName=".page.Dashboard"/>
         <activity
                 android:name=".page.EditProfile"
-                android:parentActivityName=".page.Profile" />
+                android:parentActivityName=".page.Profile"/>
         <activity
                 android:name=".page.Profile"
-                android:parentActivityName=".page.Dashboard" />
+                android:parentActivityName=".page.Dashboard"/>
         <activity
                 android:name=".page.Dashboard"
                 android:label="@string/title_activity_dashboard_seller"
-                android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".page.ChooseAs" />
+                android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".page.ChooseAs"/>
         <activity android:name=".page.SplashScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

@@ -34,6 +34,7 @@
         <ul class="treeview-menu">
           <li class="active"><a href="{{ url('admin/datauser') }}"><i class="fa fa-circle-o"></i> Data User</a></li>
         <li><a href="{{ url('admin/datastore') }}"><i class="fa fa-circle-o"></i> Data Store</a></li>
+        <li><a href="{{ url('admin/datapembayaran') }}"><i class="fa fa-circle-o"></i> Data Pembayaran</a></li>
         </ul>
       </li>
       <li class="treeview">

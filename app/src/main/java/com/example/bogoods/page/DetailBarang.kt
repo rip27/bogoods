@@ -41,7 +41,6 @@ class DetailBarang : AppCompatActivity() {
     private var adapter: RatingAdapter? = null
     private var recyclerView: RecyclerView? = null
     private var list: MutableList<RatingModel> = ArrayList()
-    private var total = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

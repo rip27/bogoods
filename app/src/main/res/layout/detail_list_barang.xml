@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".page.DetailListBarang">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_detail_list_barang"
+            android:layout_width="match_parent"
+            app:title="Detail Barang"
+            android:layout_height="wrap_content"/>
+
+    <View android:layout_width="match_parent"
+          android:background="#33f"
+          android:layout_below="@+id/toolbar_detail_list_barang"
+          android:layout_height="2dp"/>
+
+    <ImageView android:layout_width="30dp"
+               android:id="@+id/ic_edit_bondo"
+               android:layout_alignParentEnd="true"
+               android:layout_margin="10dp"
+               android:src="@drawable/ic_edit_black"
+               android:layout_height="30dp"/>
+
+    <ScrollView android:layout_width="match_parent"
+                android:layout_below="@+id/toolbar_detail_list_barang"
+                android:layout_marginTop="5dp"
+                android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
+            <ImageView android:layout_width="match_parent"
+                       android:layout_marginBottom="5dp"
+                       android:id="@+id/imagebarang_list_detail"
+                       android:layout_height="200dp"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginStart="10dp"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginEnd="10dp"
+                              android:paddingBottom="10dp">
+                    <TextView android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="2"
+                              android:text="Nama Barang"/>
+                    <TextView android:id="@+id/nama_barang_list_detail"
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="5"
+                              android:textAlignment="textEnd"/>
+                </LinearLayout>
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
+                      android:background="#555"/>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginStart="10dp"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginEnd="10dp"
+                              android:paddingBottom="10dp">
+                    <TextView android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="2"
+                              android:text="Harga"/>
+                    <TextView android:id="@+id/harga_list_detail"
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="5"
+                              android:textAlignment="textEnd"/>
+                </LinearLayout>
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
+                      android:background="#555"/>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginStart="10dp"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginEnd="10dp"
+                              android:paddingBottom="10dp">
+                    <TextView android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="2"
+                              android:text="Nama Toko"/>
+                    <TextView android:id="@+id/namatoko_list_detail"
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="5"
+                              android:textAlignment="textEnd"/>
+                </LinearLayout>
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
+                      android:background="#555"/>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginStart="10dp"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginEnd="10dp"
+                              android:paddingBottom="10dp">
+                    <TextView android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="2"
+                              android:text="Stok"/>
+                    <TextView android:id="@+id/stok_list_detail"
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="5"
+                              android:textAlignment="textEnd"/>
+                </LinearLayout>
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
+                      android:background="#555"/>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginStart="10dp"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginEnd="10dp"
+                              android:paddingBottom="10dp">
+                    <TextView android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="2"
+                              android:text="Desc"/>
+                    <TextView android:id="@+id/desc_list_detail"
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="5"
+                              android:textAlignment="textEnd"/>
+                </LinearLayout>
+            </LinearLayout>
+            <View android:layout_width="match_parent"
+                  android:layout_height="5dp"
+                  android:background="@drawable/hitamputihgradasibottom"/>
+            <TextView android:id="@+id/rating_list_barang_number"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginStart="10dp"
+                      android:layout_marginEnd="10dp"
+                      android:layout_marginTop="20dp"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:textColor="#000"/>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rc_rating_list_barang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

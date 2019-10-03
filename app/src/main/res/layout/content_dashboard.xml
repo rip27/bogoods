@@ -268,4 +268,9 @@
 
     </RelativeLayout>
 
+    <ImageView android:layout_width="match_parent"
+               android:src="@drawable/bogoods_gr_with_text"
+               android:layout_alignParentBottom="true"
+               android:layout_height="200dp"/>
+
 </RelativeLayout>

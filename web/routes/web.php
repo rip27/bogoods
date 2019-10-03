@@ -29,3 +29,6 @@ Route::get('/admin/datauser', function () {
 Route::get('/admin/datastore', function () {
     return view('admin/datastore');
 });
+Route::get('/admin/datapembayaran', function () {
+    return view('admin/datapembayaran');
+});

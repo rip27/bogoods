@@ -1,7 +1,7 @@
 @extends('apps.layout')
 
 @section('content')
-    <h1>Data Store</h1>
+    <h1>Data Pembayaran</h1>
     <div class="col-md-12">
     <div class="card card-default">
         <div class="card-header">
@@ -17,10 +17,10 @@
                 <thead>
                     <tr>
                             <th>No.</th>
-                            <th>Store Name</th>
-                            <th>Owner</th>
-                            <th>Address</th>
-                            <th>Status</th>
+                            <th>Order ID</th>
+                            <th>Bukti Bayar</th>
+                            <th>Tanggal Pesan</th>
+                            <th>Total Bayar</th>
                             <th width="180" class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -52,12 +52,12 @@
       var obj = [];
       var obj2 = [];
       var no = 1;
-      firebase.database().ref('store/').on('value', function(snapshot) {
+      firebase.database().ref('order/').orderByChild('statuspembayaran').equalTo("p").on('value', function(snapshot) {
           var order = snapshot.val();
           obj = [];  
           $.each(order, function(index ,order){
               if(order) {
-                  obj2 = [no++,order.storename,order.idpemilik,order.address,order.status,'<a data-toggle="modal"  class="btn btn-success updateData" onclick="openModal(\'' + index + '\')" data-id="'+index+'">Approve</a>\
+                  obj2 = [no++,order.idorder,'<img width="125" heigth="125" src='+ order.buktitforder +' />',order.tglpesan,order.totalbayar,'<a data-toggle="modal"  class="btn btn-success updateData" onclick="openModal(\'' + index + '\')" data-id="'+index+'">Approve</a>\
                   <a data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="'+index+'">Reject</a>'];
                   obj.push(obj2);
                 }

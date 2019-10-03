@@ -19,11 +19,11 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>No.</th>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Job</th>
-                                <th width="180" class="text-center">Action</th>
                             </tr>
                             <tbody id="tbody">
                                 
@@ -64,12 +64,11 @@ databaseRef.on("value", function(snapshot) {
           if(values.id != uid){
             htmls.push('<tr>\
               <td>'+ no++ +'</td>\
+              <td>'+ values.id +'</td>\
               <td>'+ values.name +'</td>\
               <td>'+ values.phone +'</td>\
               <td>'+ values.email +'</td>\
               <td>'+ values.job +'</td>\
-              <td><a class="btn btn-outline-success approveStore" id="'+index+'">Approve</a>\
-              <a class="btn btn-outline-danger rejectStore" id="'+index+'">Delete</a></td>\
               </tr>');
             }
       }    	

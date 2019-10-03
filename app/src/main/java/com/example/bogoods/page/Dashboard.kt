@@ -83,16 +83,6 @@ class Dashboard : AppCompatActivity() {
         my_store.setOnClickListener {
             startActivity(Intent(this@Dashboard, MyStore::class.java))
         }
-//        FirebaseDatabase.getInstance().getReference("order").orderByChild("idpemilikstore").equalTo(fAuth.currentUser?.uid)
-//            .addListenerForSingleValueEvent(object : ValueEventListener{
-//                override fun onDataChange(p0: DataSnapshot) {
-//                    count_acc_order.text = p0.childrenCount.toString()
-//                }
-//
-//                override fun onCancelled(p0: DatabaseError) {
-//                }
-//
-//            })
         accept_req_connection_store_dashboard.setOnClickListener {
             startActivity(Intent(this@Dashboard, AcceptRequest::class.java))
         }
