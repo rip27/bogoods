@@ -21,6 +21,9 @@
                             <th>Bukti Bayar</th>
                             <th>Tanggal Pesan</th>
                             <th>Total Bayar</th>
+                            <th>Jenis Pembayaran</th>
+                            <th>Status Bayar</th>
+                            <th>Status Barang</th>
                             <th width="180" class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -52,12 +55,12 @@
       var obj = [];
       var obj2 = [];
       var no = 1;
-      firebase.database().ref('order/').orderByChild('statuspembayaran').equalTo("p").on('value', function(snapshot) {
+      firebase.database().ref('order/').on('value', function(snapshot) {
           var order = snapshot.val();
           obj = [];  
           $.each(order, function(index ,order){
               if(order) {
-                  obj2 = [no++,order.idorder,'<img width="125" heigth="125" src='+ order.buktitforder +' />',order.tglpesan,order.totalbayar,'<a data-toggle="modal"  class="btn btn-success updateData" onclick="openModal(\'' + index + '\')" data-id="'+index+'">Approve</a>\
+                  obj2 = [no++,order.idorder,'<img width="125px" maxheigth="125px" src='+ order.buktitforder +' />',order.tglpesan,order.totalbayar,order.pembayaran,order.statuspembayaran,order.statusbarang,'<a data-toggle="modal"  class="btn btn-success updateData" onclick="openModal(\'' + index + '\')" data-id="'+index+'">Approve</a>\
                   <a data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="'+index+'">Reject</a>'];
                   obj.push(obj2);
                 }
@@ -82,25 +85,34 @@
         var updateID = $(this).attr('data-id');
         firebase.database().ref('store/' + updateID).on('value', function(snapshot) {
             var values = snapshot.val();
-            alert(updateID)
         });
     });
 
  function updateUserRecord() {
      var updateID = $('#id_index').val();
-        firebase.database().ref('store/' +updateID).on('value', function(snapshot) {
+        firebase.database().ref('order/' +updateID).on('value', function(snapshot) {
     var data = snapshot.val();
-    alert(updateID)
+    alert("SUKSES")
 	var postData = {
-        address:data.address,
-        idpemilik:data.idpemilik,
+        alamatpengiriman:data.alamatpengiriman,
+        buktitforder:data.buktitforder,
+        idpemilikstore:data.idpemilikstore,
+        idpembeli:data.idpembeli,
+        idbarang:data.idbarang,
+        idorder:data.idorder,
         idstore:data.idstore,
-        status:"y",
-        storename:data.storename,
+        statuspembayaran:"konfirmasiseller",
+        statusbarang:data.statusbarang,
+        jumlah:data.jumlah,
+        pembayaran:data.pembayaran,
+        pengiriman:data.pengiriman,
+        tglpesan:data.tglpesan,
+        total:data.total,
+        totalbayar:data.totalbayar,
     };
     
 	var updates = {};
-	updates['store/' + updateID] = postData;
+	updates['order/' + updateID] = postData;
 	firebase.database().ref().update(updates);
 	$("#update-modal").modal('hide');
     });

@@ -49,7 +49,7 @@ class EditProfile : AppCompatActivity() {
         fAuth = FirebaseAuth.getInstance()
         val uid = fAuth.currentUser?.uid
 
-        foto_profile_seller_edit.setOnClickListener {
+        bt_set_poto_edit_profile.setOnClickListener {
             when {
                 (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) -> {
                     if (ContextCompat.checkSelfPermission(

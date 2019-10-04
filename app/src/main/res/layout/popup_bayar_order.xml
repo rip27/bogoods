@@ -6,8 +6,19 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
+    <TextView android:layout_width="wrap_content"
+              android:textAlignment="center"
+              android:id="@+id/rek"
+              android:textColor="#000"
+              android:text="Transfer ke Rekening berikut \n 2891992080 ( BoGoods )"
+              android:layout_centerHorizontal="true"
+              android:textAppearance="@style/TextAppearance.AppCompat.Small"
+              android:layout_height="wrap_content"/>
+
     <ImageView android:layout_width="125dp"
                android:padding="10dp"
+               android:layout_marginTop="10dp"
+               android:layout_below="@+id/rek"
                android:id="@+id/image_bukti_tf_order"
                android:background="@drawable/round"
                android:src="@drawable/ic_menu_gallery"

@@ -29,7 +29,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
             android:layout_below="@+id/header_layout_profile"
             android:layout_width="100dp"
-            android:padding="5dp"
+            android:padding="2dp"
             android:background="@drawable/background_back"
             android:layout_margin="20dp"
             android:id="@+id/foto_profile"
@@ -102,55 +102,71 @@
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_below="@+id/v"
+                  android:id="@+id/c"
+                  android:orientation="vertical"
+                  android:padding="10dp"
                   android:layout_height="wrap_content">
 
-        <RelativeLayout android:layout_width="0dp"
-                      android:padding="10dp"
-                      android:layout_weight="1"
-                      android:layout_height="wrap_content">
-            <LinearLayout
-                    android:background="#005"
-                    android:layout_centerInParent="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                <Button
-                        android:layout_marginEnd="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="#00f"
-                        android:text="EDIT"
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_margin="10dp"
                         android:id="@+id/bt_edit"
-                        android:textColor="#fff"
-                        android:paddingHorizontal="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:background="#ddf"
+                        android:layout_height="50dp">
 
-            </LinearLayout>
+            <ImageView android:layout_width="30dp"
+                       android:layout_marginStart="10dp"
+                       android:id="@+id/ic_edit_prof"
+                       android:src="@drawable/ic_person_black"
+                       android:layout_centerVertical="true"
+                       android:layout_height="30dp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_margin="10dp"
+                      android:layout_toEndOf="@+id/ic_edit_prof"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:textColor="#000"
+                      android:layout_centerVertical="true"
+                      android:text="Edit Profile"
+                      android:layout_height="wrap_content"/>
+
+            <ImageView android:layout_width="30dp"
+                       android:layout_alignParentEnd="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginEnd="10dp"
+                       android:src="@drawable/ic_chevron_right_black"
+                       android:layout_height="30dp"/>
+
         </RelativeLayout>
-        <RelativeLayout android:layout_width="0dp"
-                      android:padding="10dp"
-                      android:layout_weight="1"
-                      android:layout_height="wrap_content">
-            <LinearLayout
-                    android:layout_centerInParent="true"
-                    android:background="#500"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                <Button
-                        android:layout_marginEnd="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="#f00"
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_margin="10dp"
                         android:id="@+id/bt_logout"
-                        android:text="LOGOUT"
-                        android:textColor="#fff"
-                        android:paddingHorizontal="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:background="#ddf"
+                        android:layout_height="50dp">
 
-            </LinearLayout>
+            <ImageView android:layout_width="30dp"
+                       android:layout_marginStart="10dp"
+                       android:id="@+id/ic_logout_prof"
+                       android:src="@drawable/ic_exit_to_app_black"
+                       android:layout_centerVertical="true"
+                       android:layout_height="30dp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_margin="10dp"
+                      android:layout_toEndOf="@+id/ic_logout_prof"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                      android:textColor="#000"
+                      android:layout_centerVertical="true"
+                      android:text="Logout"
+                      android:layout_height="wrap_content"/>
+
+            <ImageView android:layout_width="30dp"
+                       android:layout_alignParentEnd="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginEnd="10dp"
+                       android:src="@drawable/ic_chevron_right_black"
+                       android:layout_height="30dp"/>
+
         </RelativeLayout>
-
 
     </LinearLayout>
 </RelativeLayout>

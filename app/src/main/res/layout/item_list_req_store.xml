@@ -62,26 +62,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/shape_et_auth"
+                android:background="#3f3"
                 android:padding="5dp"
+                android:textColor="#fff"
                 android:text="Request Connection"
                 android:textAlignment="center"/>
-        <LinearLayout android:id="@+id/sudah_req"
-                      android:layout_marginTop="5dp"
-                      android:visibility="gone"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:background="@drawable/shape_et_auth">
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_marginTop="5dp"
                     android:background="#f33"
+                    android:visibility="gone"
                     android:padding="5dp"
+                    android:id="@+id/sudah_req"
                     android:text="Already Request"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"/>
-        </LinearLayout>
     </LinearLayout>
 
 

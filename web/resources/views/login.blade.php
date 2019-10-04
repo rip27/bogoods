@@ -47,7 +47,7 @@
         <div class="form-group has-feedback">
           <button type="submit" class="btn btn-warning btn-block btn-flat form-control" onclick="login()">Sign In</button>
         </div>
-    <a data-toggle="modal" data-target="#register" class="text-center" style="color:#555">Register a new membership</a>
+    <a data-toggle="modal" data-target="#register" class="text-center" style="color:#555">Register a new Account</a>
 
   </div>
   <!-- /.login-box-body -->

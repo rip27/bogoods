@@ -155,14 +155,19 @@ class DetailBarang : AppCompatActivity() {
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
-                        tv_stok_detail.setText(p0.value.toString())
+                        val stok = p0.value.toString()
+                        tv_stok_detail.text = "$stok pcs"
+                        if (stok.toInt() <= 0) {
+                            masukin.text = "Stok Habis"
+                        } else {
+                            add_to_cart.setOnClickListener {
+                                showDialogCart()
+                            }
+                        }
                     }
 
                 }
             )
-        add_to_cart.setOnClickListener {
-            showDialogCart()
-        }
     }
 
     fun total() {
@@ -180,14 +185,15 @@ class DetailBarang : AppCompatActivity() {
                     var i = 0
                     var rating = 0f
                     p0.children.forEach {
-                        rating+=rating + it.child("rating").value.toString().toFloat()
+                        rating += it.child("rating").value.toString().toFloat()
                         i++
+                        rating_barang_number.text = "Rating\n${rating/i} dari $i Ulasan"
                     }
-                    rating_barang_number.text = "Rating\n${(rating/i)} dari $i Ulasan"
                 }
             }
         )
     }
+
     private fun showDialogCart() {
         var dialog: AlertDialog
         val alertDialog = AlertDialog.Builder(this)

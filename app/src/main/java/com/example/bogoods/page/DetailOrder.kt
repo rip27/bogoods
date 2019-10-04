@@ -756,6 +756,8 @@ class DetailOrder : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
             dialog.dismiss()
+            startActivity(intent)
+            finish()
         }
         dialog.show()
     }
@@ -848,6 +850,8 @@ class DetailOrder : AppCompatActivity() {
                     }
                 )
                 dialog.dismiss()
+                startActivity(intent)
+                finish()
             }
             dialog.show()
         }

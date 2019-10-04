@@ -52,7 +52,7 @@
       var obj = [];
       var obj2 = [];
       var no = 1;
-      firebase.database().ref('store/').on('value', function(snapshot) {
+      firebase.database().ref('store/').orderByChild('status').equalTo('n').on('value', function(snapshot) {
           var order = snapshot.val();
           obj = [];  
           $.each(order, function(index ,order){
@@ -82,7 +82,6 @@
         var updateID = $(this).attr('data-id');
         firebase.database().ref('store/' + updateID).on('value', function(snapshot) {
             var values = snapshot.val();
-            alert(updateID)
         });
     });
 
@@ -90,7 +89,7 @@
      var updateID = $('#id_index').val();
         firebase.database().ref('store/' +updateID).on('value', function(snapshot) {
     var data = snapshot.val();
-    alert(updateID)
+    alert("SUKSES")
 	var postData = {
         address:data.address,
         idpemilik:data.idpemilik,

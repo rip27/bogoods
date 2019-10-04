@@ -12,33 +12,33 @@
                     android:layout_height="wrap_content">
 
         <ImageView
-                android:layout_below="@+id/tv_nama_barang"
                 android:id="@+id/imagelistbarang"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_below="@+id/tv_nama_barang"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:background="@drawable/round"
                 android:src="@drawable/bogoods_with_gradient"/>
 
         <TextView
-                android:layout_marginStart="10dp"
                 android:id="@+id/tv_nama_barang"
-                android:layout_toStartOf="@+id/ic_edit_barang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toStartOf="@+id/ic_edit_barang"
                 android:text="Cok"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"/>
 
         <TextView
+                android:id="@+id/ic_edit_barang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ic_edit_barang"
-                android:layout_marginEnd="10dp"
                 android:layout_alignParentEnd="true"
-        android:text="Edit"
-        android:textColor="#33f"/>
+                android:layout_marginEnd="10dp"
+                android:text="Edit"
+                android:textColor="#33f"/>
 
     </RelativeLayout>
 

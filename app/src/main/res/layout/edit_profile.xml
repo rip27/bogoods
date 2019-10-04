@@ -23,24 +23,34 @@
     <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="150dp"
             android:layout_marginTop="50dp"
-            android:padding="5dp"
+            android:padding="2dp"
             android:id="@+id/foto_profile_seller_edit"
             android:src="@drawable/ic_seller"
             android:background="@drawable/background_back"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/toolbarEditSeller"
             android:layout_height="150dp"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_centerHorizontal="true"
+              android:layout_marginTop="10dp"
+              android:text="Set Foto"
+              android:textColor="#000"
+              android:background="@drawable/stroke_item_list"
+              android:padding="5dp"
+              android:layout_below="@+id/foto_profile_seller_edit"
+              android:id="@+id/bt_set_poto_edit_profile"
+              android:layout_height="wrap_content"/>
 
     <LinearLayout
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:id="@+id/content_edit_name"
-            android:layout_below="@+id/foto_profile_seller_edit"
+            android:layout_below="@+id/bt_set_poto_edit_profile"
             android:background="@drawable/gradient_rounded"
             android:layout_height="wrap_content">
         <EditText
-                android:layout_margin="2dp"
+                android:layout_margin="1dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/shape_et_auth"
                 android:id="@+id/et_name_seller_edit"
@@ -49,7 +59,7 @@
                 android:inputType="textPersonName"
                 android:textColorHint="#666"
                 android:textSize="12sp"
-                android:layout_height="30dp"/>
+                android:layout_height="40dp"/>
     </LinearLayout>
     <LinearLayout
             android:layout_marginHorizontal="20dp"
@@ -60,7 +70,7 @@
             android:background="@drawable/gradient_rounded"
             android:layout_height="wrap_content">
         <EditText
-                android:layout_margin="2dp"
+                android:layout_margin="1dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/shape_et_auth"
                 android:id="@+id/et_phone_seller_edit"
@@ -69,7 +79,7 @@
                 android:textSize="12sp"
                 android:inputType="phone"
                 android:textColorHint="#666"
-                android:layout_height="30dp"/>
+                android:layout_height="40dp"/>
     </LinearLayout>
     <LinearLayout
             android:layout_marginHorizontal="20dp"
@@ -80,14 +90,14 @@
             android:background="@drawable/gradient_rounded"
             android:layout_height="wrap_content">
         <Spinner
-                android:layout_margin="2dp"
+                android:layout_margin="1dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/shape_et_auth"
                 android:id="@+id/sp_gender_seller_edit"
                 android:paddingHorizontal="10dp"
                 android:textSize="12sp"
                 android:entries="@array/gender"
-                android:layout_height="30dp"/>
+                android:layout_height="40dp"/>
     </LinearLayout>
 
     <LinearLayout

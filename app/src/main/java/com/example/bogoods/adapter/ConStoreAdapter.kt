@@ -69,10 +69,10 @@ class ConStoreAdapter : RecyclerView.Adapter<ConStoreAdapter.ConstoreViewHolder>
                     Log.e("cok", holder.message)
                 }
             })
-        val ref2 = FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection/")
+        FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection/${fauth.currentUser?.uid}")
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(p0: DataSnapshot) {
-                    if (!p0.hasChildren()) {
+                    if (!p0.exists()) {
                         holder.sdr.visibility = View.GONE
                         holder.req.visibility = View.VISIBLE
                     } else {
@@ -90,7 +90,7 @@ class ConStoreAdapter : RecyclerView.Adapter<ConStoreAdapter.ConstoreViewHolder>
             val alertDialog = android.app.AlertDialog.Builder(mCtx)
             alertDialog.setTitle("REQUEST CONNECTION")
             alertDialog.setPositiveButton("REQUEST") { dialog, i ->
-                val idreq = UUID.randomUUID().toString()
+                val idreq = fauth.currentUser?.uid
                 dbRef = FirebaseDatabase.getInstance().getReference("store/${storeModel.idstore}/requestconnection/$idreq")
                 dbRef.child("iduserrequest").setValue(fauth.currentUser?.uid)
                 dbRef.child("idstore").setValue(storeModel.idstore)
@@ -112,7 +112,7 @@ class ConStoreAdapter : RecyclerView.Adapter<ConStoreAdapter.ConstoreViewHolder>
 
     inner class ConstoreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var ll: LinearLayout
-        var sdr: LinearLayout
+        var sdr: TextView
         var namastore: TextView
         var pemilik: TextView
         var address: TextView

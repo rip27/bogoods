@@ -184,6 +184,8 @@ class DetailAccOrder : AppCompatActivity() {
                                                                                     "Sukses Terima",
                                                                                     Toast.LENGTH_SHORT
                                                                                 ).show()
+                                                                                startActivity(intent)
+                                                                                finish()
                                                                             }
                                                                             alertDialog.setNegativeButton("Cancel") { dialog, i ->
                                                                                 dialog.dismiss()
@@ -206,6 +208,8 @@ class DetailAccOrder : AppCompatActivity() {
                                                                                     "Sukses Tolak",
                                                                                     Toast.LENGTH_SHORT
                                                                                 ).show()
+                                                                                startActivity(intent)
+                                                                                finish()
                                                                             }
                                                                             alertDialog.setNegativeButton("Cancel") { dialog, i ->
                                                                                 dialog.dismiss()
@@ -304,6 +308,8 @@ class DetailAccOrder : AppCompatActivity() {
                                                                                     .setValue("s")
                                                                                 bt_pesanan_sudah_sampai.visibility =
                                                                                     View.GONE
+                                                                                startActivity(intent)
+                                                                                finish()
                                                                             }
                                                                             alertDialog.setNegativeButton("Batal") { dialog, i ->
                                                                                 dialog.dismiss()
@@ -409,6 +415,8 @@ class DetailAccOrder : AppCompatActivity() {
                                                                                     "Sukses Terima",
                                                                                     Toast.LENGTH_SHORT
                                                                                 ).show()
+                                                                                startActivity(intent)
+                                                                                finish()
                                                                             }
                                                                             alertDialog.setNegativeButton("Cancel") { dialog, i ->
                                                                                 dialog.dismiss()
@@ -431,6 +439,8 @@ class DetailAccOrder : AppCompatActivity() {
                                                                                     "Sukses Tolak",
                                                                                     Toast.LENGTH_SHORT
                                                                                 ).show()
+                                                                                startActivity(intent)
+                                                                                finish()
                                                                             }
                                                                             alertDialog.setNegativeButton("Cancel") { dialog, i ->
                                                                                 dialog.dismiss()
@@ -530,6 +540,8 @@ class DetailAccOrder : AppCompatActivity() {
                                                                                     .setValue("s")
                                                                                 bt_pesanan_sudah_sampai.visibility =
                                                                                     View.GONE
+                                                                                startActivity(intent)
+                                                                                finish()
                                                                             }
                                                                             alertDialog.setNegativeButton("Batal") { dialog, i ->
                                                                                 dialog.dismiss()
@@ -844,6 +856,8 @@ class DetailAccOrder : AppCompatActivity() {
             orderRef.child("statusbarang")
                 .setValue("y")
             dialog.dismiss()
+            startActivity(intent)
+            finish()
         }
         dialog.show()
     }
