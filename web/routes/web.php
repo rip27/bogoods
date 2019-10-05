@@ -21,7 +21,7 @@ Route::get('/index', function () {
     return view('index');
 });
 Route::get('/admin', function () {
-    return view('admin/adminreal');
+    return view('admin/admin');
 });
 Route::get('/admin/datauser', function () {
     return view('admin/datauser');

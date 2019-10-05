@@ -144,6 +144,7 @@ class MyStore : AppCompatActivity() {
         dbRef.child("idstore").setValue(idstore)
         dbRef.child("storename").setValue(stname)
         dbRef.child("address").setValue(address)
+        dbRef.child("email").setValue(fAuth.currentUser?.email)
         dbRef.child("status").setValue("n")
         dbRef.child("idpemilik").setValue(uid)
         Toast.makeText(

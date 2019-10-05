@@ -34,7 +34,7 @@
                 android:id="@+id/et_address"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_margin="4dp"
+                android:layout_margin="1dp"
                 android:textSize="12sp"
                 android:background="@drawable/shape_et_auth"
                 android:hint="Address"

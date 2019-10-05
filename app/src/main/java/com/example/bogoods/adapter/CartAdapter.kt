@@ -286,6 +286,7 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 db_add_order.child("idbarang").setValue(model.idbarang.toString())
                 db_add_order.child("idorder").setValue(idorder)
                 db_add_order.child("tglpesan").setValue(formateddate)
+                db_add_order.child("email").setValue(fauth.currentUser?.email)
                 db_add_order.child("idstore").setValue(model.idstore.toString())
                 db_add_order.child("idpembeli").setValue(model.idpembeli.toString())
                 db_add_order.child("idpemilikstore").setValue(model.idpemilikstore.toString())
@@ -304,6 +305,8 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
                 FirebaseDatabase.getInstance().getReference("cart")
                     .child("${model.key}").removeValue()
+
+                Toast.makeText(mCtx, "Sukses Menambahkan Order", Toast.LENGTH_SHORT).show()
 
                 dialog.dismiss()
             }
