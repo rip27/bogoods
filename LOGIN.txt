@@ -1,0 +1,7 @@
+Sebagai User :
+- Jika Anda Sebagai User Silahkan Mendaftarkan diri pada halaman daftar
+- Silahkan Download Aplikasi dan ikuti langkah langkah penggunaan aplikasi yang terdapat pada dashboard web
+
+Sebagai Admin :
+- login dengan email : admin@admin.com . password : adminadmin
+- dalam halaman admin ada fungsi approve store dan approve pembayaran
